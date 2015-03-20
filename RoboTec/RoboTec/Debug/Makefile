@@ -32,15 +32,21 @@ LIB_DEP:=
 LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS := 
+SUBDIRS :=  \
+../Driver \
+../Driver/Headers \
+../Driver/Source \
+../Sources \
+../Headers
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../ADC.c \
-../PWM.c \
-../RoboTec.c \
-../USART.c
+../Driver/Source/ADC.c \
+../Driver/Source/PWM.c \
+../Driver/Source/USART.c \
+../Sources/Interrupts.c \
+../Sources/main.c
 
 
 PREPROCESSING_SRCS += 
@@ -50,28 +56,32 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-ADC.o \
-PWM.o \
-RoboTec.o \
-USART.o
+Driver/Source/ADC.o \
+Driver/Source/PWM.o \
+Driver/Source/USART.o \
+Sources/Interrupts.o \
+Sources/main.o
 
 OBJS_AS_ARGS +=  \
-ADC.o \
-PWM.o \
-RoboTec.o \
-USART.o
+Driver/Source/ADC.o \
+Driver/Source/PWM.o \
+Driver/Source/USART.o \
+Sources/Interrupts.o \
+Sources/main.o
 
 C_DEPS +=  \
-ADC.d \
-PWM.d \
-RoboTec.d \
-USART.d
+Driver/Source/ADC.d \
+Driver/Source/PWM.d \
+Driver/Source/USART.d \
+Sources/Interrupts.d \
+Sources/main.d
 
 C_DEPS_AS_ARGS +=  \
-ADC.d \
-PWM.d \
-RoboTec.d \
-USART.d
+Driver/Source/ADC.d \
+Driver/Source/PWM.d \
+Driver/Source/USART.d \
+Sources/Interrupts.d \
+Sources/main.d
 
 OUTPUT_FILE_PATH +=RoboTec.elf
 
@@ -96,7 +106,16 @@ LINKER_SCRIPT_DEP+=
 
 
 
-./%.o: .././%.c
+
+
+Driver/Source/%.o: ../Driver/Source/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 4.8.1
+	$(QUOTE)D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32u4 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Sources/%.o: ../Sources/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 4.8.1
 	$(QUOTE)D:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32u4 -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -8,7 +8,8 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "usart.h"
+//#include "/RoboTec/Headers/USART.h"
+#include "/RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h"
 
 void pwm_init()
 {
@@ -37,7 +38,7 @@ void forward(uint8_t value)
 	PORTF &= ~(1 << PORTF7);
 	PORTB &= ~(1 << PORTB4);
 }
-void backwords(uint8_t value)
+void backwards(uint8_t value)
 {
 	OCR1A = value;
 	OCR1B = value;

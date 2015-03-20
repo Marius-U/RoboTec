@@ -7,6 +7,7 @@
 #include <avr/io.h>
 #include <stdlib.h>
 #include <string.h>
+#include <avr/interrupt.h>
 # define USART_BAUDRATE 115200
 # define BAUD_PRESCALE ((( F_CPU / ( USART_BAUDRATE * 16UL))) - 1)
 unsigned char a[5];
@@ -26,24 +27,61 @@ void uart_transmit( unsigned char data )
 // write a string to the uart
 void uart_print( char data[] )
 {
+	//cli();
 	uint8_t count = 0;
 	uint8_t length = strlen(data);
 	
 	for ( count = 0; count < length; count++ )
 	uart_transmit(data[count]);
+	
+	uart_transmit('\r');
+	uart_transmit('\n');
+	//sei();
 }
-void uart_int_transmit(unsigned int data)
+void uart_int_transmit(uint16_t data)
 {
-	unsigned int i=0;
-	char temp;
-	a[5] = '\n';
-	for(i=4 ; i >= 0 ; i --)
+	//unsigned int i=0;
+	//char temp;
+	//a[5] = '\n';
+	//for(i=4 ; i >= 0 ; i --)
+	//{
+		//itoa((data%10),temp,10);
+		//a[i] = temp;
+		//data = data / 10;
+	//}
+	//uart_print(a);
+	//
+	uint8_t d1 = (data%10)+48;
+	data = data / 10;
+	
+	uint8_t d2 = (data%10)+48;
+	data = data / 10;
+	
+	uint8_t d3 = (data%10)+48;
+	data = data / 10;
+	
+	uint8_t d4 = (data%10)+48;
+	data = data / 10;
+	
+	if( d4 != 48)
 	{
-		itoa((data%10),temp,10);
-		a[i] = temp;
-		data = data / 10;
+		uart_transmit(d4);
 	}
-	uart_print(a);
+	if( d3 != 48)
+	{
+		uart_transmit(d3);
+	}
+	if( d2 != 48)
+	{
+		uart_transmit(d2);
+	}
+	if( d1 != 48)
+	{
+		uart_transmit(d1);
+	}
+	
+	uart_transmit('\r');
+	uart_transmit('\n');
 	
 }
 void uart_int(unsigned int data)

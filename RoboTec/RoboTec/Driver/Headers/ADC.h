@@ -10,6 +10,7 @@
 #define ADC_H_
 
 void ADC_init();
+void ADC_interuptInit();
 uint16_t ADC_read(uint8_t adc_in);
 
 
