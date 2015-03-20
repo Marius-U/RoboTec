@@ -6,14 +6,14 @@
  */ 
 
 /*------------Defines--------------*/
-#define TRESHOLD 500
+#define TRESHOLD 0x1F4u //500
 
 /*------------Includes-------------*/
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include"/RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h"
-#include"/RoboTec/RoboTec/RoboTec/Driver/Headers/PWM.h"
-#include"/RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h"
+#include "/RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h"
+#include "/RoboTec/RoboTec/RoboTec/Driver/Headers/PWM.h"
+#include "/RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h"
 
 /*------------Declarations----------*/
 unsigned char sFlag=1; 
@@ -31,11 +31,9 @@ int main(void)
 {
 	uint8_t aux;
 	//cli();
-		uart_init();
+	uart_init();
 	ADC_interuptInit();
-
-	
-	
+	ADC_setADMUX(channel);
 	uart_print("Initialisation finished");
 	sei();
 	
@@ -44,7 +42,6 @@ int main(void)
 
 		
 			aux = CheckSensor();
-			uart_int_transmit(adc_value);
 			//MotorControl(aux);
     }
 }
@@ -54,19 +51,32 @@ char CheckSensor()
 {
 	uint8_t state = 0;
 	
-	
+
 	while(adc_value < TRESHOLD)
 	{
-		if(channel >= 8)
-			channel = 0;
+		uart_transmit('A');
+		uart_transmit(':');
+		uart_int_transmit(adc_value);
+		uart_transmit('C');
+		uart_transmit(':');
+		uart_transmit(channel+48);
+		uart_transmit('\r');
+		uart_transmit('\n');
 			
-		//uart_print("adc_value");
+		if(channel >= 8)
+		{
+			channel = 0;
+		}
+		else
+		{
+			cli();
+			ADC_setADMUX(channel);
+			channel += 1;
+			sei();
+		}
 		
-		ADC_setADMUX(channel);
-		channel += 1;
 	}
-	//Todo
-	
+
 	return state;
 }
 
@@ -75,11 +85,11 @@ void MotorControl(uint8_t state)
 	
 }
 
-ISR(ADC_vect)
-{
-	//cli();
+//ISR(ADC_vect)
+//{
+	////cli();
 	//adc_value = ADC;
-	//uart_print("ADC value");
-	
-	//sei();
-}
+	////uart_print("ADC value");
+	//
+	////sei();
+//}

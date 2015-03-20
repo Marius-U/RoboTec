@@ -114,9 +114,6 @@
     <Compile Include="Driver\Source\USART.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Headers\Interrupts.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="Headers\main.h">
       <SubType>compile</SubType>
     </Compile>
