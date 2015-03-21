@@ -8,11 +8,22 @@
 #include "/RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h"
 #include <avr/interrupt.h>
 
+
 ISR (ADC_vect)
 {
-	//cli();
-	adc_value = ADC;
-	//uart_print("ADC value");
+	if(count == 10000)
+	{
+		/*Store the previous value of the conversion*/
+		adc_prevValue = adc_value;
 	
-	//sei();
+		/*Store the current value of the conversion*/
+		adc_value = ADC;
+		
+		count = 0;		
+	}
+	else
+	{
+		count++;
+	}
+
 }

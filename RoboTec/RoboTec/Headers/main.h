@@ -8,4 +8,6 @@
 #include <avr/io.h> 
 
 
-extern  uint16_t adc_value; 
+extern uint16_t adc_value; 
+extern uint16_t adc_prevValue; 
+extern uint16_t count;
