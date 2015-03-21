@@ -4,22 +4,14 @@
  * Created: 3/19/2015 6:45:24 PM
  *  Author: Marius
  */ 
-/*------------Defines--------------*/
-#define SENSOR1 0
-#define SENSOR2 1
-#define SENSOR3	4
-#define SENSOR4 5
-#define SENSOR5 6
-#define SENSOR6 32
-#define SENSOR7 33
-#define SENSOR8 34
 
 /*------------Includes-------------*/
 #include <avr/io.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "/RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h"
+#include "/RoboTec/RoboTec/RoboTec/Headers/main.h"
 
 void ADC_init()
 {

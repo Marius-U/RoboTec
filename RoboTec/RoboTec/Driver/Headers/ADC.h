@@ -12,7 +12,7 @@
 void ADC_init();
 void ADC_interuptInit();
 void ADC_setADMUX(uint8_t channel);
-uint16_t ADC_read(uint8_t adc_in);
+uint16_t ADC_read();
 
 
 #endif /* ADC_H_ */

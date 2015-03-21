@@ -1,4 +1,4 @@
-Driver/Source/PWM.d Driver/Source/PWM.o: ../Driver/Source/PWM.c \
+Sources/Armanag.d Sources/Armanag.o: ../Sources/Armanag.c \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -10,12 +10,10 @@ Driver/Source/PWM.d Driver/Source/PWM.o: ../Driver/Source/PWM.c \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\version.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\lock.h \
- d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\stdio.h \
- d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\lib\gcc\avr\4.8.1\include\stdarg.h \
- d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\lib\gcc\avr\4.8.1\include\stddef.h \
- d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\stdlib.h \
- /RoboTec/RoboTec/RoboTec/Driver/Headers/PWM.h \
- /RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h
+ /RoboTec/RoboTec/RoboTec/Headers/Armanag.h \
+ /RoboTec/RoboTec/RoboTec/Headers/main.h \
+ /RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h \
+ /RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h
 
 d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -39,14 +37,10 @@ d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr
 
 d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\stdio.h:
+/RoboTec/RoboTec/RoboTec/Headers/Armanag.h:
 
-d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\lib\gcc\avr\4.8.1\include\stdarg.h:
-
-d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\lib\gcc\avr\4.8.1\include\stddef.h:
-
-d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\stdlib.h:
-
-/RoboTec/RoboTec/RoboTec/Driver/Headers/PWM.h:
+/RoboTec/RoboTec/RoboTec/Headers/main.h:
 
 /RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h:
+
+/RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h:

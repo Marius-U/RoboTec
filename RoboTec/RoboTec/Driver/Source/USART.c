@@ -4,12 +4,17 @@
  * Created: 3/19/2015 6:46:33 PM
  *  Author: Marius
  */ 
+
+/*------------Includes-------------*/
 #include <avr/io.h>
 #include <stdlib.h>
 #include <string.h>
 #include <avr/interrupt.h>
-# define USART_BAUDRATE 115200
-# define BAUD_PRESCALE ((( F_CPU / ( USART_BAUDRATE * 16UL))) - 1)
+#include "/RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h"
+
+
+
+/*------------Declarations----------*/
 unsigned char a[5];
 volatile int valid=0;
 
@@ -125,9 +130,12 @@ int uart_dataAvailable(void)
 	return 0;
 }
 
-void uart_flush(void)
+uint8_t uart_flush(void)
 {
-	unsigned char dummy;
+	uint8_t dummy = 0;
+	
 	while(UCSR1A & (1 << RXC1))
 	dummy = UDR1;
+	
+	return dummy;
 }

@@ -45,8 +45,10 @@ C_SRCS +=  \
 ../Driver/Source/ADC.c \
 ../Driver/Source/PWM.c \
 ../Driver/Source/USART.c \
+../Sources/Armanag.c \
 ../Sources/Interrupts.c \
-../Sources/main.c
+../Sources/main.c \
+../Sources/Motors.c
 
 
 PREPROCESSING_SRCS += 
@@ -59,29 +61,37 @@ OBJS +=  \
 Driver/Source/ADC.o \
 Driver/Source/PWM.o \
 Driver/Source/USART.o \
+Sources/Armanag.o \
 Sources/Interrupts.o \
-Sources/main.o
+Sources/main.o \
+Sources/Motors.o
 
 OBJS_AS_ARGS +=  \
 Driver/Source/ADC.o \
 Driver/Source/PWM.o \
 Driver/Source/USART.o \
+Sources/Armanag.o \
 Sources/Interrupts.o \
-Sources/main.o
+Sources/main.o \
+Sources/Motors.o
 
 C_DEPS +=  \
 Driver/Source/ADC.d \
 Driver/Source/PWM.d \
 Driver/Source/USART.d \
+Sources/Armanag.d \
 Sources/Interrupts.d \
-Sources/main.d
+Sources/main.d \
+Sources/Motors.d
 
 C_DEPS_AS_ARGS +=  \
 Driver/Source/ADC.d \
 Driver/Source/PWM.d \
 Driver/Source/USART.d \
+Sources/Armanag.d \
 Sources/Interrupts.d \
-Sources/main.d
+Sources/main.d \
+Sources/Motors.d
 
 OUTPUT_FILE_PATH +=RoboTec.elf
 
@@ -97,6 +107,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

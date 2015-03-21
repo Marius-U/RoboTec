@@ -114,13 +114,28 @@
     <Compile Include="Driver\Source\USART.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Headers\Armanag.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Headers\Interrupts.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Headers\main.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Headers\Motors.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Sources\Armanag.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Sources\Interrupts.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Sources\main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Sources\Motors.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

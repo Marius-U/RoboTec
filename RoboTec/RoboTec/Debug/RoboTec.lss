@@ -3,29 +3,29 @@ RoboTec.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000022  00800100  000005ca  0000065e  2**0
+  0 .data         00000022  00800100  000005c4  00000658  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000005ca  00000000  00000000  00000094  2**1
+  1 .text         000005c4  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000008  00800122  00800122  00000680  2**0
+  2 .bss          00000008  00800122  00800122  0000067a  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000680  2**0
+  3 .comment      00000030  00000000  00000000  0000067a  2**0
                   CONTENTS, READONLY
-  4 .debug_aranges 000000e0  00000000  00000000  000006b0  2**0
+  4 .debug_aranges 00000110  00000000  00000000  000006aa  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000735  00000000  00000000  00000790  2**0
+  5 .debug_info   0000089a  00000000  00000000  000007ba  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000398  00000000  00000000  00000ec5  2**0
+  6 .debug_abbrev 000004ad  00000000  00000000  00001054  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000449  00000000  00000000  0000125d  2**0
+  7 .debug_line   000005ff  00000000  00000000  00001501  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000190  00000000  00000000  000016a8  2**2
+  8 .debug_frame  000001b8  00000000  00000000  00001b00  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000276  00000000  00000000  00001838  2**0
+  9 .debug_str    0000029f  00000000  00000000  00001cb8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000003ad  00000000  00000000  00001aae  2**0
+ 10 .debug_loc    000003eb  00000000  00000000  00001f57  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 000000a0  00000000  00000000  00001e5b  2**0
+ 11 .debug_ranges 000000b0  00000000  00000000  00002342  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -60,7 +60,7 @@ Disassembly of section .text:
   68:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
   6c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
   70:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  74:	0c 94 50 02 	jmp	0x4a0	; 0x4a0 <__vector_29>
+  74:	0c 94 8a 02 	jmp	0x514	; 0x514 <__vector_29>
   78:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
   7c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
   80:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
@@ -122,7 +122,7 @@ Disassembly of section .text:
   fe:	11 e0       	ldi	r17, 0x01	; 1
  100:	a0 e0       	ldi	r26, 0x00	; 0
  102:	b1 e0       	ldi	r27, 0x01	; 1
- 104:	ea ec       	ldi	r30, 0xCA	; 202
+ 104:	e4 ec       	ldi	r30, 0xC4	; 196
  106:	f5 e0       	ldi	r31, 0x05	; 5
  108:	02 c0       	rjmp	.+4      	; 0x10e <__do_copy_data+0x10>
  10a:	05 90       	lpm	r0, Z+
@@ -145,7 +145,7 @@ Disassembly of section .text:
  120:	b2 07       	cpc	r27, r18
  122:	e1 f7       	brne	.-8      	; 0x11c <.do_clear_bss_loop>
  124:	0e 94 bc 02 	call	0x578	; 0x578 <main>
- 128:	0c 94 e3 02 	jmp	0x5c6	; 0x5c6 <_exit>
+ 128:	0c 94 e0 02 	jmp	0x5c0	; 0x5c0 <_exit>
 
 0000012c <__bad_interrupt>:
  12c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -199,7 +199,7 @@ void ADC_setADMUX(uint8_t channel)
  166:	fc 01       	movw	r30, r24
  168:	ea 5a       	subi	r30, 0xAA	; 170
  16a:	ff 4f       	sbci	r31, 0xFF	; 255
- 16c:	0c 94 ce 02 	jmp	0x59c	; 0x59c <__tablejump2__>
+ 16c:	0c 94 cb 02 	jmp	0x596	; 0x596 <__tablejump2__>
 	{
 		case SENSOR1 :
 		{
@@ -553,7 +553,7 @@ void uart_int_transmit(uint16_t data)
  33a:	9c 01       	movw	r18, r24
  33c:	ad ec       	ldi	r26, 0xCD	; 205
  33e:	bc ec       	ldi	r27, 0xCC	; 204
- 340:	0e 94 d4 02 	call	0x5a8	; 0x5a8 <__umulhisi3>
+ 340:	0e 94 d1 02 	call	0x5a2	; 0x5a2 <__umulhisi3>
  344:	96 95       	lsr	r25
  346:	87 95       	ror	r24
  348:	96 95       	lsr	r25
@@ -577,7 +577,7 @@ void uart_int_transmit(uint16_t data)
  36c:	c0 5d       	subi	r28, 0xD0	; 208
 	data = data / 10;
  36e:	9a 01       	movw	r18, r20
- 370:	0e 94 d4 02 	call	0x5a8	; 0x5a8 <__umulhisi3>
+ 370:	0e 94 d1 02 	call	0x5a2	; 0x5a2 <__umulhisi3>
  374:	ac 01       	movw	r20, r24
  376:	56 95       	lsr	r21
  378:	47 95       	ror	r20
@@ -588,7 +588,7 @@ void uart_int_transmit(uint16_t data)
 	
 	uint8_t d2 = (data%10)+48;
  382:	9a 01       	movw	r18, r20
- 384:	0e 94 d4 02 	call	0x5a8	; 0x5a8 <__umulhisi3>
+ 384:	0e 94 d1 02 	call	0x5a2	; 0x5a2 <__umulhisi3>
  388:	9c 01       	movw	r18, r24
  38a:	36 95       	lsr	r19
  38c:	27 95       	ror	r18
@@ -614,7 +614,7 @@ void uart_int_transmit(uint16_t data)
  3b4:	d8 0f       	add	r29, r24
 	data = data / 10;
  3b6:	9a 01       	movw	r18, r20
- 3b8:	0e 94 d4 02 	call	0x5a8	; 0x5a8 <__umulhisi3>
+ 3b8:	0e 94 d1 02 	call	0x5a2	; 0x5a2 <__umulhisi3>
  3bc:	ac 01       	movw	r20, r24
  3be:	56 95       	lsr	r21
  3c0:	47 95       	ror	r20
@@ -625,7 +625,7 @@ void uart_int_transmit(uint16_t data)
 	
 	uint8_t d3 = (data%10)+48;
  3ca:	9a 01       	movw	r18, r20
- 3cc:	0e 94 d4 02 	call	0x5a8	; 0x5a8 <__umulhisi3>
+ 3cc:	0e 94 d1 02 	call	0x5a2	; 0x5a2 <__umulhisi3>
  3d0:	9c 01       	movw	r18, r24
  3d2:	36 95       	lsr	r19
  3d4:	27 95       	ror	r18
@@ -651,7 +651,7 @@ void uart_int_transmit(uint16_t data)
  3fc:	18 0f       	add	r17, r24
 	data = data / 10;
  3fe:	9a 01       	movw	r18, r20
- 400:	0e 94 d4 02 	call	0x5a8	; 0x5a8 <__umulhisi3>
+ 400:	0e 94 d1 02 	call	0x5a2	; 0x5a2 <__umulhisi3>
  404:	ac 01       	movw	r20, r24
  406:	56 95       	lsr	r21
  408:	47 95       	ror	r20
@@ -662,7 +662,7 @@ void uart_int_transmit(uint16_t data)
 	
 	uint8_t d4 = (data%10)+48;
  412:	9a 01       	movw	r18, r20
- 414:	0e 94 d4 02 	call	0x5a8	; 0x5a8 <__umulhisi3>
+ 414:	0e 94 d1 02 	call	0x5a2	; 0x5a2 <__umulhisi3>
  418:	96 95       	lsr	r25
  41a:	87 95       	ror	r24
  41c:	96 95       	lsr	r25
@@ -761,206 +761,205 @@ void uart_init(void)
  49a:	80 93 ca 00 	sts	0x00CA, r24
  49e:	08 95       	ret
 
-000004a0 <__vector_29>:
+000004a0 <CheckSensor>:
+#include "/RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h"
+
+
+char CheckSensor()
+{
+	while(TRESHOLD > adc_value)
+ 4a0:	2f c0       	rjmp	.+94     	; 0x500 <CheckSensor+0x60>
+	{
+		uart_transmit('A');
+ 4a2:	81 e4       	ldi	r24, 0x41	; 65
+ 4a4:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
+		uart_transmit(':');
+ 4a8:	8a e3       	ldi	r24, 0x3A	; 58
+ 4aa:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
+		uart_int_transmit(adc_value);
+ 4ae:	80 91 27 01 	lds	r24, 0x0127
+ 4b2:	90 91 28 01 	lds	r25, 0x0128
+ 4b6:	0e 94 99 01 	call	0x332	; 0x332 <uart_int_transmit>
+		uart_transmit('C');
+ 4ba:	83 e4       	ldi	r24, 0x43	; 67
+ 4bc:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
+		uart_transmit(':');
+ 4c0:	8a e3       	ldi	r24, 0x3A	; 58
+ 4c2:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
+		uart_transmit(channel+48);
+ 4c6:	80 91 22 01 	lds	r24, 0x0122
+ 4ca:	80 5d       	subi	r24, 0xD0	; 208
+ 4cc:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
+		uart_transmit('\r');
+ 4d0:	8d e0       	ldi	r24, 0x0D	; 13
+ 4d2:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
+		uart_transmit('\n');
+ 4d6:	8a e0       	ldi	r24, 0x0A	; 10
+ 4d8:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
+		
+		if(channel >= 8)
+ 4dc:	e0 91 22 01 	lds	r30, 0x0122
+ 4e0:	e8 30       	cpi	r30, 0x08	; 8
+ 4e2:	18 f0       	brcs	.+6      	; 0x4ea <CheckSensor+0x4a>
+		{
+			channel = 0;
+ 4e4:	10 92 22 01 	sts	0x0122, r1
+ 4e8:	0b c0       	rjmp	.+22     	; 0x500 <CheckSensor+0x60>
+		}
+		else
+		{
+			ADC_setADMUX(sensor[channel]);
+ 4ea:	f0 e0       	ldi	r31, 0x00	; 0
+ 4ec:	e0 50       	subi	r30, 0x00	; 0
+ 4ee:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4f0:	80 81       	ld	r24, Z
+ 4f2:	0e 94 ae 00 	call	0x15c	; 0x15c <ADC_setADMUX>
+			channel += 1;
+ 4f6:	80 91 22 01 	lds	r24, 0x0122
+ 4fa:	8f 5f       	subi	r24, 0xFF	; 255
+ 4fc:	80 93 22 01 	sts	0x0122, r24
+#include "/RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h"
+
+
+char CheckSensor()
+{
+	while(TRESHOLD > adc_value)
+ 500:	80 91 27 01 	lds	r24, 0x0127
+ 504:	90 91 28 01 	lds	r25, 0x0128
+ 508:	84 3f       	cpi	r24, 0xF4	; 244
+ 50a:	91 40       	sbci	r25, 0x01	; 1
+ 50c:	50 f2       	brcs	.-108    	; 0x4a2 <CheckSensor+0x2>
+		}
+		
+	}
+
+	return state;
+ 50e:	80 91 29 01 	lds	r24, 0x0129
+ 512:	08 95       	ret
+
+00000514 <__vector_29>:
 #include "/RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h"
 #include <avr/interrupt.h>
 
 
 ISR (ADC_vect)
 {
- 4a0:	1f 92       	push	r1
- 4a2:	0f 92       	push	r0
- 4a4:	0f b6       	in	r0, 0x3f	; 63
- 4a6:	0f 92       	push	r0
- 4a8:	11 24       	eor	r1, r1
- 4aa:	2f 93       	push	r18
- 4ac:	8f 93       	push	r24
- 4ae:	9f 93       	push	r25
+ 514:	1f 92       	push	r1
+ 516:	0f 92       	push	r0
+ 518:	0f b6       	in	r0, 0x3f	; 63
+ 51a:	0f 92       	push	r0
+ 51c:	11 24       	eor	r1, r1
+ 51e:	2f 93       	push	r18
+ 520:	8f 93       	push	r24
+ 522:	9f 93       	push	r25
 	if(count == 10000)
- 4b0:	80 91 22 01 	lds	r24, 0x0122
- 4b4:	90 91 23 01 	lds	r25, 0x0123
- 4b8:	80 31       	cpi	r24, 0x10	; 16
- 4ba:	27 e2       	ldi	r18, 0x27	; 39
- 4bc:	92 07       	cpc	r25, r18
- 4be:	a9 f4       	brne	.+42     	; 0x4ea <__vector_29+0x4a>
+ 524:	80 91 23 01 	lds	r24, 0x0123
+ 528:	90 91 24 01 	lds	r25, 0x0124
+ 52c:	80 31       	cpi	r24, 0x10	; 16
+ 52e:	27 e2       	ldi	r18, 0x27	; 39
+ 530:	92 07       	cpc	r25, r18
+ 532:	a9 f4       	brne	.+42     	; 0x55e <__vector_29+0x4a>
 	{
 		/*Store the previous value of the conversion*/
 		adc_prevValue = adc_value;
- 4c0:	80 91 26 01 	lds	r24, 0x0126
- 4c4:	90 91 27 01 	lds	r25, 0x0127
- 4c8:	90 93 25 01 	sts	0x0125, r25
- 4cc:	80 93 24 01 	sts	0x0124, r24
+ 534:	80 91 27 01 	lds	r24, 0x0127
+ 538:	90 91 28 01 	lds	r25, 0x0128
+ 53c:	90 93 26 01 	sts	0x0126, r25
+ 540:	80 93 25 01 	sts	0x0125, r24
 	
 		/*Store the current value of the conversion*/
 		adc_value = ADC;
- 4d0:	80 91 78 00 	lds	r24, 0x0078
- 4d4:	90 91 79 00 	lds	r25, 0x0079
- 4d8:	90 93 27 01 	sts	0x0127, r25
- 4dc:	80 93 26 01 	sts	0x0126, r24
+ 544:	80 91 78 00 	lds	r24, 0x0078
+ 548:	90 91 79 00 	lds	r25, 0x0079
+ 54c:	90 93 28 01 	sts	0x0128, r25
+ 550:	80 93 27 01 	sts	0x0127, r24
 		
 		count = 0;		
- 4e0:	10 92 23 01 	sts	0x0123, r1
- 4e4:	10 92 22 01 	sts	0x0122, r1
- 4e8:	05 c0       	rjmp	.+10     	; 0x4f4 <__vector_29+0x54>
+ 554:	10 92 24 01 	sts	0x0124, r1
+ 558:	10 92 23 01 	sts	0x0123, r1
+ 55c:	05 c0       	rjmp	.+10     	; 0x568 <__vector_29+0x54>
 	}
 	else
 	{
 		count++;
- 4ea:	01 96       	adiw	r24, 0x01	; 1
- 4ec:	90 93 23 01 	sts	0x0123, r25
- 4f0:	80 93 22 01 	sts	0x0122, r24
+ 55e:	01 96       	adiw	r24, 0x01	; 1
+ 560:	90 93 24 01 	sts	0x0124, r25
+ 564:	80 93 23 01 	sts	0x0123, r24
 	}
 
 }
- 4f4:	9f 91       	pop	r25
- 4f6:	8f 91       	pop	r24
- 4f8:	2f 91       	pop	r18
- 4fa:	0f 90       	pop	r0
- 4fc:	0f be       	out	0x3f, r0	; 63
- 4fe:	0f 90       	pop	r0
- 500:	1f 90       	pop	r1
- 502:	18 95       	reti
-
-00000504 <CheckSensor>:
-}
-
-
-char CheckSensor()
-{
-	while(TRESHOLD > adc_value)
- 504:	2f c0       	rjmp	.+94     	; 0x564 <CheckSensor+0x60>
-	{
-		//
-		//uart_int_transmit(adc_value);
-		//uart_transmit(channel+48);
-		uart_transmit('A');
- 506:	81 e4       	ldi	r24, 0x41	; 65
- 508:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_transmit(':');
- 50c:	8a e3       	ldi	r24, 0x3A	; 58
- 50e:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_int_transmit(adc_value);
- 512:	80 91 26 01 	lds	r24, 0x0126
- 516:	90 91 27 01 	lds	r25, 0x0127
- 51a:	0e 94 99 01 	call	0x332	; 0x332 <uart_int_transmit>
-		uart_transmit('C');
- 51e:	83 e4       	ldi	r24, 0x43	; 67
- 520:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_transmit(':');
- 524:	8a e3       	ldi	r24, 0x3A	; 58
- 526:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_transmit(channel+48);
- 52a:	80 91 29 01 	lds	r24, 0x0129
- 52e:	80 5d       	subi	r24, 0xD0	; 208
- 530:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_transmit('\r');
- 534:	8d e0       	ldi	r24, 0x0D	; 13
- 536:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_transmit('\n');
- 53a:	8a e0       	ldi	r24, 0x0A	; 10
- 53c:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-			
-		if(channel >= 8)
- 540:	e0 91 29 01 	lds	r30, 0x0129
- 544:	e8 30       	cpi	r30, 0x08	; 8
- 546:	18 f0       	brcs	.+6      	; 0x54e <CheckSensor+0x4a>
-		{
-			channel = 0;
- 548:	10 92 29 01 	sts	0x0129, r1
- 54c:	0b c0       	rjmp	.+22     	; 0x564 <CheckSensor+0x60>
-		}
-		else
-		{
-			ADC_setADMUX(sensor[channel]);
- 54e:	f0 e0       	ldi	r31, 0x00	; 0
- 550:	e0 50       	subi	r30, 0x00	; 0
- 552:	ff 4f       	sbci	r31, 0xFF	; 255
- 554:	80 81       	ld	r24, Z
- 556:	0e 94 ae 00 	call	0x15c	; 0x15c <ADC_setADMUX>
-			channel += 1;
- 55a:	80 91 29 01 	lds	r24, 0x0129
- 55e:	8f 5f       	subi	r24, 0xFF	; 255
- 560:	80 93 29 01 	sts	0x0129, r24
-}
-
-
-char CheckSensor()
-{
-	while(TRESHOLD > adc_value)
- 564:	80 91 26 01 	lds	r24, 0x0126
- 568:	90 91 27 01 	lds	r25, 0x0127
- 56c:	84 3f       	cpi	r24, 0xF4	; 244
- 56e:	91 40       	sbci	r25, 0x01	; 1
- 570:	50 f2       	brcs	.-108    	; 0x506 <CheckSensor+0x2>
-		}
-		
-	}
-
-	return state;
-}
- 572:	80 91 28 01 	lds	r24, 0x0128
- 576:	08 95       	ret
+ 568:	9f 91       	pop	r25
+ 56a:	8f 91       	pop	r24
+ 56c:	2f 91       	pop	r18
+ 56e:	0f 90       	pop	r0
+ 570:	0f be       	out	0x3f, r0	; 63
+ 572:	0f 90       	pop	r0
+ 574:	1f 90       	pop	r1
+ 576:	18 95       	reti
 
 00000578 <main>:
 
 int main(void)
 {
 	uint8_t aux;
-	//cli();
+
 	uart_init();
  578:	0e 94 3f 02 	call	0x47e	; 0x47e <uart_init>
 	ADC_interuptInit();
  57c:	0e 94 98 00 	call	0x130	; 0x130 <ADC_interuptInit>
-	//ADC_setADMUX(channel);
 	uart_print("Initialisation finished.");
  580:	88 e0       	ldi	r24, 0x08	; 8
  582:	91 e0       	ldi	r25, 0x01	; 1
  584:	0e 94 78 01 	call	0x2f0	; 0x2f0 <uart_print>
-	adc_value = 123;
- 588:	8b e7       	ldi	r24, 0x7B	; 123
- 58a:	90 e0       	ldi	r25, 0x00	; 0
- 58c:	90 93 27 01 	sts	0x0127, r25
- 590:	80 93 26 01 	sts	0x0126, r24
 	sei();
- 594:	78 94       	sei
+ 588:	78 94       	sei
 	
     while(1)
     {
-
-		
 			aux = CheckSensor();
- 596:	0e 94 82 02 	call	0x504	; 0x504 <CheckSensor>
- 59a:	fd cf       	rjmp	.-6      	; 0x596 <main+0x1e>
+ 58a:	0e 94 50 02 	call	0x4a0	; 0x4a0 <CheckSensor>
+			MotorControl(aux);
+ 58e:	0e 94 ca 02 	call	0x594	; 0x594 <MotorControl>
+ 592:	fb cf       	rjmp	.-10     	; 0x58a <main+0x12>
 
-0000059c <__tablejump2__>:
- 59c:	ee 0f       	add	r30, r30
- 59e:	ff 1f       	adc	r31, r31
+00000594 <MotorControl>:
+#include <avr/io.h>
+#include "/RoboTec/RoboTec/RoboTec/Headers/main.h"
+#include "/RoboTec/RoboTec/RoboTec/Headers/Motors.h"
 
-000005a0 <__tablejump__>:
- 5a0:	05 90       	lpm	r0, Z+
- 5a2:	f4 91       	lpm	r31, Z
- 5a4:	e0 2d       	mov	r30, r0
- 5a6:	09 94       	ijmp
+void MotorControl(uint8_t state)
+{
+ 594:	08 95       	ret
 
-000005a8 <__umulhisi3>:
- 5a8:	a2 9f       	mul	r26, r18
- 5aa:	b0 01       	movw	r22, r0
- 5ac:	b3 9f       	mul	r27, r19
- 5ae:	c0 01       	movw	r24, r0
- 5b0:	a3 9f       	mul	r26, r19
- 5b2:	70 0d       	add	r23, r0
- 5b4:	81 1d       	adc	r24, r1
- 5b6:	11 24       	eor	r1, r1
- 5b8:	91 1d       	adc	r25, r1
- 5ba:	b2 9f       	mul	r27, r18
- 5bc:	70 0d       	add	r23, r0
- 5be:	81 1d       	adc	r24, r1
- 5c0:	11 24       	eor	r1, r1
- 5c2:	91 1d       	adc	r25, r1
- 5c4:	08 95       	ret
+00000596 <__tablejump2__>:
+ 596:	ee 0f       	add	r30, r30
+ 598:	ff 1f       	adc	r31, r31
 
-000005c6 <_exit>:
- 5c6:	f8 94       	cli
+0000059a <__tablejump__>:
+ 59a:	05 90       	lpm	r0, Z+
+ 59c:	f4 91       	lpm	r31, Z
+ 59e:	e0 2d       	mov	r30, r0
+ 5a0:	09 94       	ijmp
 
-000005c8 <__stop_program>:
- 5c8:	ff cf       	rjmp	.-2      	; 0x5c8 <__stop_program>
+000005a2 <__umulhisi3>:
+ 5a2:	a2 9f       	mul	r26, r18
+ 5a4:	b0 01       	movw	r22, r0
+ 5a6:	b3 9f       	mul	r27, r19
+ 5a8:	c0 01       	movw	r24, r0
+ 5aa:	a3 9f       	mul	r26, r19
+ 5ac:	70 0d       	add	r23, r0
+ 5ae:	81 1d       	adc	r24, r1
+ 5b0:	11 24       	eor	r1, r1
+ 5b2:	91 1d       	adc	r25, r1
+ 5b4:	b2 9f       	mul	r27, r18
+ 5b6:	70 0d       	add	r23, r0
+ 5b8:	81 1d       	adc	r24, r1
+ 5ba:	11 24       	eor	r1, r1
+ 5bc:	91 1d       	adc	r25, r1
+ 5be:	08 95       	ret
+
+000005c0 <_exit>:
+ 5c0:	f8 94       	cli
+
+000005c2 <__stop_program>:
+ 5c2:	ff cf       	rjmp	.-2      	; 0x5c2 <__stop_program>

@@ -8,7 +8,11 @@ Driver\Source\PWM.c
 
 Driver\Source\USART.c
 
+Sources\Armanag.c
+
 Sources\Interrupts.c
 
 Sources\main.c
+
+Sources\Motors.c
 
