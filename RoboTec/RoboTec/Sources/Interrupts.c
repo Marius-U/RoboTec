@@ -12,19 +12,5 @@
 
 ISR (ADC_vect)
 {
-	if(count == 10000)
-	{
-		/*Store the previous value of the conversion*/
-		adc_prevValue = adc_value;
-	
-		/*Store the current value of the conversion*/
-		adc_value = ADC;
-		
-		count = 0;		
-	}
-	else
-	{
-		count++;
-	}
-
+	adc_value = ADC;
 }

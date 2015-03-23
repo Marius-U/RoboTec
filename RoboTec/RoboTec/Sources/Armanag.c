@@ -7,6 +7,7 @@
 #include <avr/io.h>
 #include "/RoboTec/RoboTec/RoboTec/Headers/Armanag.h"
 #include "/RoboTec/RoboTec/RoboTec/Headers/main.h"
+#include <util/delay.h>
 #include "/RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h"
 #include "/RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h"
 
@@ -33,7 +34,8 @@ char CheckSensor()
 			ADC_setADMUX(sensor[channel]);
 			channel += 1;
 		}
-		
+		adc_value =	0;
+		adcFlag = false;
 	}
 
 	return state;

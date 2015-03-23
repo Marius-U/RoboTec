@@ -10,6 +10,7 @@
 /*------------Includes-------------*/
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <stdbool.h>
 #include "/RoboTec/RoboTec/RoboTec/Headers/main.h"
 #include "/RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h"
 #include "/RoboTec/RoboTec/RoboTec/Driver/Headers/PWM.h"
@@ -20,9 +21,10 @@
 /*------------Declarations----------*/
 uint8_t sFlag=1; 
 uint8_t state = 0;
-uint16_t adc_value = 0; 
-uint16_t adc_prevValue = 0;
-uint16_t count = 0;
+volatile uint16_t adc_value = 0; 
+volatile uint16_t adc_prevValue = 0;
+volatile bool adcFlag;
+volatile uint16_t count = 0;
 uint8_t channel = 0;
 uint8_t sensor[MAX_SENSOR] = {0, 1, 4, 5, 6, 32, 33, 34}; /* Where: 0 - selection input for the ADCMUX that selects ADC0
 																	1 - selection input for the ADCMUX that selects ADC1
@@ -36,7 +38,10 @@ uint8_t sensor[MAX_SENSOR] = {0, 1, 4, 5, 6, 32, 33, 34}; /* Where: 0 - selectio
 int main(void)
 {
 	uint8_t aux;
-
+	
+	DIDR0 |= (1 << ADC0D) | (1 << ADC1D) | (1 << ADC4D) | (1 << ADC5D) | (1 << ADC6D);
+	DIDR2 |= (1 << ADC8D) | (1 << ADC9D) | (1 << ADC10D); 
+	
 	uart_init();
 	ADC_interuptInit();
 	uart_print("Initialisation finished.");

@@ -7,10 +7,12 @@
  */ 
 
 /*------------Includes-------------*/
-#include <avr/io.h> 
+#include <avr/io.h>
+#include <stdbool.h>
 
 /*------------Defines--------------*/
-#define TRESHOLD 0x1F4 //500
+#define F_CPU 16000000UL
+#define TRESHOLD  0x1F4 //500
 #define MAX_SENSOR	8
 #define SENSOR1 0
 #define SENSOR2 1
@@ -24,9 +26,10 @@
 
 
 /*------------Extern variables--------------*/
-extern uint16_t adc_value; 
-extern uint16_t adc_prevValue; 
-extern uint16_t count;
+extern volatile uint16_t adc_value;
+extern volatile uint16_t adc_prevValue; 
+extern volatile uint16_t count;
+extern volatile bool adcFlag;
 extern uint8_t channel;
 extern uint8_t sensor[MAX_SENSOR];
 extern uint8_t state;

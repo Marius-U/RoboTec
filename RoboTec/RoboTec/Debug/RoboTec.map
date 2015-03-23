@@ -15,6 +15,7 @@ Allocating common symbols
 Common symbol       size              file
 
 a                   0x5               Driver/Source/USART.o
+adcFlag             0x1               Sources/main.o
 
 Discarded input sections
 
@@ -70,6 +71,9 @@ Discarded input sections
  .text          0x00000000        0x0 Sources/main.o
  .data          0x00000000        0x0 Sources/main.o
  .bss           0x00000000        0x0 Sources/main.o
+ .bss.count     0x00000000        0x2 Sources/main.o
+ .bss.adc_prevValue
+                0x00000000        0x2 Sources/main.o
  .data.sFlag    0x00000000        0x1 Sources/main.o
  .text          0x00000000        0x0 Sources/Motors.o
  .data          0x00000000        0x0 Sources/Motors.o
@@ -274,7 +278,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x5c4
+.text           0x00000000      0x5b8
  *(.vectors)
  .vectors       0x00000000       0xac d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32u4.o
                 0x00000000                __vector_default
@@ -396,27 +400,27 @@ END GROUP
                 0x0000047e       0x22 Driver/Source/USART.o
                 0x0000047e                uart_init
  .text.CheckSensor
-                0x000004a0       0x74 Sources/Armanag.o
+                0x000004a0       0x8c Sources/Armanag.o
                 0x000004a0                CheckSensor
  .text.__vector_29
-                0x00000514       0x64 Sources/Interrupts.o
-                0x00000514                __vector_29
- .text.main     0x00000578       0x1c Sources/main.o
-                0x00000578                main
+                0x0000052c       0x2c Sources/Interrupts.o
+                0x0000052c                __vector_29
+ .text.main     0x00000558       0x30 Sources/main.o
+                0x00000558                main
  .text.MotorControl
-                0x00000594        0x2 Sources/Motors.o
-                0x00000594                MotorControl
- .text.libgcc   0x00000596        0xc d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
-                0x00000596                __tablejump2__
-                0x0000059a                __tablejump__
+                0x00000588        0x2 Sources/Motors.o
+                0x00000588                MotorControl
+ .text.libgcc   0x0000058a        0xc d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+                0x0000058a                __tablejump2__
+                0x0000058e                __tablejump__
  .text.libgcc.mul
-                0x000005a2       0x1e d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
-                0x000005a2                __umulhisi3
-                0x000005c0                . = ALIGN (0x2)
+                0x00000596       0x1e d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_umulhisi3.o)
+                0x00000596                __umulhisi3
+                0x000005b4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000005c0        0x0 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                0x000005c0                _exit
-                0x000005c0                exit
+ .fini9         0x000005b4        0x0 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x000005b4                _exit
+                0x000005b4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -435,11 +439,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000005c0        0x4 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .fini0         0x000005b4        0x4 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000005c4                _etext = .
+                0x000005b8                _etext = .
 
-.data           0x00800100       0x22 load address 0x000005c4
+.data           0x00800100       0x22 load address 0x000005b8
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -455,33 +459,30 @@ END GROUP
                 0x00800122                _edata = .
                 0x00800122                PROVIDE (__data_end, .)
 
-.bss            0x00800122        0x8
+.bss            0x00800122        0x5
                 0x00800122                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.channel   0x00800122        0x1 Sources/main.o
                 0x00800122                channel
- .bss.count     0x00800123        0x2 Sources/main.o
-                0x00800123                count
- .bss.adc_prevValue
-                0x00800125        0x2 Sources/main.o
-                0x00800125                adc_prevValue
  .bss.adc_value
-                0x00800127        0x2 Sources/main.o
-                0x00800127                adc_value
- .bss.state     0x00800129        0x1 Sources/main.o
-                0x00800129                state
+                0x00800123        0x2 Sources/main.o
+                0x00800123                adc_value
+ .bss.state     0x00800125        0x1 Sources/main.o
+                0x00800125                state
  *(COMMON)
-                0x0080012a                PROVIDE (__bss_end, .)
-                0x000005c4                __data_load_start = LOADADDR (.data)
-                0x000005e6                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800126        0x1 Sources/main.o
+                0x00800126                adcFlag
+                0x00800127                PROVIDE (__bss_end, .)
+                0x000005b8                __data_load_start = LOADADDR (.data)
+                0x000005da                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080012a        0x0
-                0x0080012a                PROVIDE (__noinit_start, .)
+.noinit         0x00800127        0x0
+                0x00800127                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080012a                PROVIDE (__noinit_end, .)
-                0x0080012a                _end = .
-                0x0080012a                PROVIDE (__heap_start, .)
+                0x00800127                PROVIDE (__noinit_end, .)
+                0x00800127                _end = .
+                0x00800127                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -563,63 +564,63 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0x89a
+.debug_info     0x00000000      0x8c6
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0xfd Driver/Source/ADC.o
  .debug_info    0x000000fd      0x2d9 Driver/Source/USART.o
- .debug_info    0x000003d6      0x1b1 Sources/Armanag.o
- .debug_info    0x00000587       0xaa Sources/Interrupts.o
- .debug_info    0x00000631      0x1d8 Sources/main.o
- .debug_info    0x00000809       0x91 Sources/Motors.o
+ .debug_info    0x000003d6      0x1cf Sources/Armanag.o
+ .debug_info    0x000005a5       0x95 Sources/Interrupts.o
+ .debug_info    0x0000063a      0x1fb Sources/main.o
+ .debug_info    0x00000835       0x91 Sources/Motors.o
 
-.debug_abbrev   0x00000000      0x4ad
+.debug_abbrev   0x00000000      0x4c2
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0x9f Driver/Source/ADC.o
  .debug_abbrev  0x0000009f      0x16e Driver/Source/USART.o
- .debug_abbrev  0x0000020d       0xc5 Sources/Armanag.o
- .debug_abbrev  0x000002d2       0x62 Sources/Interrupts.o
- .debug_abbrev  0x00000334      0x119 Sources/main.o
- .debug_abbrev  0x0000044d       0x60 Sources/Motors.o
+ .debug_abbrev  0x0000020d       0xcc Sources/Armanag.o
+ .debug_abbrev  0x000002d9       0x69 Sources/Interrupts.o
+ .debug_abbrev  0x00000342      0x120 Sources/main.o
+ .debug_abbrev  0x00000462       0x60 Sources/Motors.o
 
-.debug_line     0x00000000      0x5ff
+.debug_line     0x00000000      0x5fd
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x112 Driver/Source/ADC.o
  .debug_line    0x00000112      0x15b Driver/Source/USART.o
- .debug_line    0x0000026d      0x116 Sources/Armanag.o
- .debug_line    0x00000383       0xcc Sources/Interrupts.o
- .debug_line    0x0000044f      0x119 Sources/main.o
- .debug_line    0x00000568       0x97 Sources/Motors.o
+ .debug_line    0x0000026d      0x114 Sources/Armanag.o
+ .debug_line    0x00000381       0xca Sources/Interrupts.o
+ .debug_line    0x0000044b      0x11b Sources/main.o
+ .debug_line    0x00000566       0x97 Sources/Motors.o
 
-.debug_frame    0x00000000      0x1b8
+.debug_frame    0x00000000      0x1b0
  *(.debug_frame)
  .debug_frame   0x00000000       0x54 Driver/Source/ADC.o
  .debug_frame   0x00000054       0xb8 Driver/Source/USART.o
  .debug_frame   0x0000010c       0x24 Sources/Armanag.o
- .debug_frame   0x00000130       0x40 Sources/Interrupts.o
- .debug_frame   0x00000170       0x24 Sources/main.o
- .debug_frame   0x00000194       0x24 Sources/Motors.o
+ .debug_frame   0x00000130       0x38 Sources/Interrupts.o
+ .debug_frame   0x00000168       0x24 Sources/main.o
+ .debug_frame   0x0000018c       0x24 Sources/Motors.o
 
-.debug_str      0x00000000      0x29f
+.debug_str      0x00000000      0x2ad
  *(.debug_str)
  .debug_str     0x00000000      0x149 Driver/Source/ADC.o
                                 0x182 (size before relaxing)
  .debug_str     0x00000149       0xae Driver/Source/USART.o
                                 0x1e1 (size before relaxing)
- .debug_str     0x000001f7       0x38 Sources/Armanag.o
-                                0x1a9 (size before relaxing)
- .debug_str     0x0000022f       0x32 Sources/Interrupts.o
-                                0x168 (size before relaxing)
- .debug_str     0x00000261       0x2a Sources/main.o
-                                0x1cb (size before relaxing)
- .debug_str     0x0000028b       0x14 Sources/Motors.o
+ .debug_str     0x000001f7       0x46 Sources/Armanag.o
+                                0x1b7 (size before relaxing)
+ .debug_str     0x0000023d       0x24 Sources/Interrupts.o
+                                0x154 (size before relaxing)
+ .debug_str     0x00000261       0x38 Sources/main.o
+                                0x1d9 (size before relaxing)
+ .debug_str     0x00000299       0x14 Sources/Motors.o
                                 0x14c (size before relaxing)
 
-.debug_loc      0x00000000      0x3eb
+.debug_loc      0x00000000      0x3de
  *(.debug_loc)
  .debug_loc     0x00000000       0xd0 Driver/Source/ADC.o
  .debug_loc     0x000000d0      0x2b2 Driver/Source/USART.o
- .debug_loc     0x00000382       0x56 Sources/Interrupts.o
- .debug_loc     0x000003d8       0x13 Sources/main.o
+ .debug_loc     0x00000382       0x49 Sources/Interrupts.o
+ .debug_loc     0x000003cb       0x13 Sources/main.o
 
 .debug_macinfo
  *(.debug_macinfo)
