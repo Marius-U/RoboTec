@@ -10,9 +10,6 @@
 #define PWM_H_
 
 void pwm_init();
-void backwards(uint8_t value);
-void forward(uint8_t value);
-void left_f(uint8_t value, uint8_t direction);
-void right(uint8_t value, uint8_t direction);
+
 
 #endif /* PWM_H_ */

@@ -43,7 +43,9 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../Driver/Source/ADC.c \
+../Driver/Source/LCD_control.c \
 ../Driver/Source/PWM.c \
+../Driver/Source/TWI_driver.c \
 ../Driver/Source/USART.c \
 ../Sources/Armanag.c \
 ../Sources/Interrupts.c \
@@ -59,7 +61,9 @@ ASM_SRCS +=
 
 OBJS +=  \
 Driver/Source/ADC.o \
+Driver/Source/LCD_control.o \
 Driver/Source/PWM.o \
+Driver/Source/TWI_driver.o \
 Driver/Source/USART.o \
 Sources/Armanag.o \
 Sources/Interrupts.o \
@@ -68,7 +72,9 @@ Sources/Motors.o
 
 OBJS_AS_ARGS +=  \
 Driver/Source/ADC.o \
+Driver/Source/LCD_control.o \
 Driver/Source/PWM.o \
+Driver/Source/TWI_driver.o \
 Driver/Source/USART.o \
 Sources/Armanag.o \
 Sources/Interrupts.o \
@@ -77,7 +83,9 @@ Sources/Motors.o
 
 C_DEPS +=  \
 Driver/Source/ADC.d \
+Driver/Source/LCD_control.d \
 Driver/Source/PWM.d \
+Driver/Source/TWI_driver.d \
 Driver/Source/USART.d \
 Sources/Armanag.d \
 Sources/Interrupts.d \
@@ -86,7 +94,9 @@ Sources/Motors.d
 
 C_DEPS_AS_ARGS +=  \
 Driver/Source/ADC.d \
+Driver/Source/LCD_control.d \
 Driver/Source/PWM.d \
+Driver/Source/TWI_driver.d \
 Driver/Source/USART.d \
 Sources/Armanag.d \
 Sources/Interrupts.d \
@@ -107,6 +117,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

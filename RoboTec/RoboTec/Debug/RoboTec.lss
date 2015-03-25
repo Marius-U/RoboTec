@@ -3,959 +3,385 @@ RoboTec.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000022  00800100  000005b8  0000064c  2**0
+  0 .data         00000038  00800100  00000236  000002ca  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000005b8  00000000  00000000  00000094  2**1
+  1 .text         00000236  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000005  00800122  00800122  0000066e  2**0
+  2 .bss          00000002  00800138  00800138  00000302  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  0000066e  2**0
+  3 .comment      00000030  00000000  00000000  00000302  2**0
                   CONTENTS, READONLY
-  4 .debug_aranges 00000110  00000000  00000000  0000069e  2**0
+  4 .debug_aranges 000000f0  00000000  00000000  00000332  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000008c6  00000000  00000000  000007ae  2**0
+  5 .debug_info   0000072a  00000000  00000000  00000422  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000004c2  00000000  00000000  00001074  2**0
+  6 .debug_abbrev 00000404  00000000  00000000  00000b4c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000005fd  00000000  00000000  00001536  2**0
+  7 .debug_line   000004f0  00000000  00000000  00000f50  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000001b0  00000000  00000000  00001b34  2**2
+  8 .debug_frame  0000018c  00000000  00000000  00001440  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000002ad  00000000  00000000  00001ce4  2**0
+  9 .debug_str    00000295  00000000  00000000  000015cc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000003de  00000000  00000000  00001f91  2**0
+ 10 .debug_loc    000003cb  00000000  00000000  00001861  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 000000b0  00000000  00000000  0000236f  2**0
+ 11 .debug_ranges 000000a0  00000000  00000000  00001c2c  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
-   0:	0c 94 79 00 	jmp	0xf2	; 0xf2 <__ctors_end>
-   4:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-   8:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-   c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  10:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  14:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  18:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  1c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  20:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  24:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  28:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  2c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  30:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  34:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  38:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  3c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  40:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  44:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  48:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  4c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  50:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  54:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  58:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  5c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  60:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  64:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  68:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  6c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  70:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  74:	0c 94 96 02 	jmp	0x52c	; 0x52c <__vector_29>
-  78:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  7c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  80:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  84:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  88:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  8c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  90:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  94:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  98:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  9c:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  a0:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  a4:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  a8:	0c 94 96 00 	jmp	0x12c	; 0x12c <__bad_interrupt>
-  ac:	b8 00       	.word	0x00b8	; ????
-  ae:	cf 00       	.word	0x00cf	; ????
-  b0:	6f 01       	movw	r12, r30
-  b2:	6f 01       	movw	r12, r30
-  b4:	e6 00       	.word	0x00e6	; ????
-  b6:	fd 00       	.word	0x00fd	; ????
-  b8:	14 01       	movw	r2, r8
-  ba:	6f 01       	movw	r12, r30
-  bc:	6f 01       	movw	r12, r30
-  be:	6f 01       	movw	r12, r30
-  c0:	6f 01       	movw	r12, r30
-  c2:	6f 01       	movw	r12, r30
-  c4:	6f 01       	movw	r12, r30
-  c6:	6f 01       	movw	r12, r30
-  c8:	6f 01       	movw	r12, r30
-  ca:	6f 01       	movw	r12, r30
-  cc:	6f 01       	movw	r12, r30
-  ce:	6f 01       	movw	r12, r30
-  d0:	6f 01       	movw	r12, r30
-  d2:	6f 01       	movw	r12, r30
-  d4:	6f 01       	movw	r12, r30
-  d6:	6f 01       	movw	r12, r30
-  d8:	6f 01       	movw	r12, r30
-  da:	6f 01       	movw	r12, r30
-  dc:	6f 01       	movw	r12, r30
-  de:	6f 01       	movw	r12, r30
-  e0:	6f 01       	movw	r12, r30
-  e2:	6f 01       	movw	r12, r30
-  e4:	6f 01       	movw	r12, r30
-  e6:	6f 01       	movw	r12, r30
-  e8:	6f 01       	movw	r12, r30
-  ea:	6f 01       	movw	r12, r30
-  ec:	2b 01       	movw	r4, r22
-  ee:	42 01       	movw	r8, r4
-  f0:	59 01       	movw	r10, r18
+   0:	0c 94 56 00 	jmp	0xac	; 0xac <__ctors_end>
+   4:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+   8:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+   c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  10:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  14:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  18:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  1c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  20:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  24:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  28:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  2c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  30:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  34:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  38:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  3c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  40:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  44:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  48:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  4c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  50:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  54:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  58:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  5c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  60:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  64:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  68:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  6c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  70:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  74:	0c 94 e8 00 	jmp	0x1d0	; 0x1d0 <__vector_29>
+  78:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  7c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  80:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  84:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  88:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  8c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  90:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  94:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  98:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  9c:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  a0:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  a4:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
+  a8:	0c 94 73 00 	jmp	0xe6	; 0xe6 <__bad_interrupt>
 
-000000f2 <__ctors_end>:
-  f2:	11 24       	eor	r1, r1
-  f4:	1f be       	out	0x3f, r1	; 63
-  f6:	cf ef       	ldi	r28, 0xFF	; 255
-  f8:	da e0       	ldi	r29, 0x0A	; 10
-  fa:	de bf       	out	0x3e, r29	; 62
-  fc:	cd bf       	out	0x3d, r28	; 61
+000000ac <__ctors_end>:
+  ac:	11 24       	eor	r1, r1
+  ae:	1f be       	out	0x3f, r1	; 63
+  b0:	cf ef       	ldi	r28, 0xFF	; 255
+  b2:	da e0       	ldi	r29, 0x0A	; 10
+  b4:	de bf       	out	0x3e, r29	; 62
+  b6:	cd bf       	out	0x3d, r28	; 61
 
-000000fe <__do_copy_data>:
-  fe:	11 e0       	ldi	r17, 0x01	; 1
- 100:	a0 e0       	ldi	r26, 0x00	; 0
- 102:	b1 e0       	ldi	r27, 0x01	; 1
- 104:	e8 eb       	ldi	r30, 0xB8	; 184
- 106:	f5 e0       	ldi	r31, 0x05	; 5
- 108:	02 c0       	rjmp	.+4      	; 0x10e <__do_copy_data+0x10>
- 10a:	05 90       	lpm	r0, Z+
- 10c:	0d 92       	st	X+, r0
- 10e:	a2 32       	cpi	r26, 0x22	; 34
- 110:	b1 07       	cpc	r27, r17
- 112:	d9 f7       	brne	.-10     	; 0x10a <__do_copy_data+0xc>
+000000b8 <__do_copy_data>:
+  b8:	11 e0       	ldi	r17, 0x01	; 1
+  ba:	a0 e0       	ldi	r26, 0x00	; 0
+  bc:	b1 e0       	ldi	r27, 0x01	; 1
+  be:	e6 e3       	ldi	r30, 0x36	; 54
+  c0:	f2 e0       	ldi	r31, 0x02	; 2
+  c2:	02 c0       	rjmp	.+4      	; 0xc8 <__do_copy_data+0x10>
+  c4:	05 90       	lpm	r0, Z+
+  c6:	0d 92       	st	X+, r0
+  c8:	a8 33       	cpi	r26, 0x38	; 56
+  ca:	b1 07       	cpc	r27, r17
+  cc:	d9 f7       	brne	.-10     	; 0xc4 <__do_copy_data+0xc>
 
-00000114 <__do_clear_bss>:
- 114:	21 e0       	ldi	r18, 0x01	; 1
- 116:	a2 e2       	ldi	r26, 0x22	; 34
- 118:	b1 e0       	ldi	r27, 0x01	; 1
- 11a:	01 c0       	rjmp	.+2      	; 0x11e <.do_clear_bss_start>
+000000ce <__do_clear_bss>:
+  ce:	21 e0       	ldi	r18, 0x01	; 1
+  d0:	a8 e3       	ldi	r26, 0x38	; 56
+  d2:	b1 e0       	ldi	r27, 0x01	; 1
+  d4:	01 c0       	rjmp	.+2      	; 0xd8 <.do_clear_bss_start>
 
-0000011c <.do_clear_bss_loop>:
- 11c:	1d 92       	st	X+, r1
+000000d6 <.do_clear_bss_loop>:
+  d6:	1d 92       	st	X+, r1
 
-0000011e <.do_clear_bss_start>:
- 11e:	a7 32       	cpi	r26, 0x27	; 39
- 120:	b2 07       	cpc	r27, r18
- 122:	e1 f7       	brne	.-8      	; 0x11c <.do_clear_bss_loop>
- 124:	0e 94 ac 02 	call	0x558	; 0x558 <main>
- 128:	0c 94 da 02 	jmp	0x5b4	; 0x5b4 <_exit>
+000000d8 <.do_clear_bss_start>:
+  d8:	aa 33       	cpi	r26, 0x3A	; 58
+  da:	b2 07       	cpc	r27, r18
+  dc:	e1 f7       	brne	.-8      	; 0xd6 <.do_clear_bss_loop>
+  de:	0e 94 fe 00 	call	0x1fc	; 0x1fc <main>
+  e2:	0c 94 19 01 	jmp	0x232	; 0x232 <_exit>
 
-0000012c <__bad_interrupt>:
- 12c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+000000e6 <__bad_interrupt>:
+  e6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-00000130 <ADC_interuptInit>:
-
-}
-
-void ADC_interuptInit()
-{
-		ADMUX |= (1 << REFS0) | (1 << REFS1); //Foloseste referinta
- 130:	ec e7       	ldi	r30, 0x7C	; 124
- 132:	f0 e0       	ldi	r31, 0x00	; 0
- 134:	80 81       	ld	r24, Z
- 136:	80 6c       	ori	r24, 0xC0	; 192
- 138:	80 83       	st	Z, r24
-		ADCSRA |=  (1<<ADATE) | (1<<ADIE) ; //Prescaler pentru 16Mhz //(1 << ADPS2) | (1 << ADPS1) | (1<<ADPS0) |
- 13a:	ea e7       	ldi	r30, 0x7A	; 122
- 13c:	f0 e0       	ldi	r31, 0x00	; 0
- 13e:	80 81       	ld	r24, Z
- 140:	88 62       	ori	r24, 0x28	; 40
- 142:	80 83       	st	Z, r24
-		//ACSR |= (1 << ACD);    //Analog Comparator is switched off when ACD is set.
-		ADCSRB |= (1<<ADHSM);
- 144:	ab e7       	ldi	r26, 0x7B	; 123
- 146:	b0 e0       	ldi	r27, 0x00	; 0
- 148:	8c 91       	ld	r24, X
- 14a:	80 68       	ori	r24, 0x80	; 128
- 14c:	8c 93       	st	X, r24
-		ADCSRA |= (1<<ADEN);
- 14e:	80 81       	ld	r24, Z
- 150:	80 68       	ori	r24, 0x80	; 128
- 152:	80 83       	st	Z, r24
-		ADCSRA |= (1 << ADSC); //Start the ADC conversion
- 154:	80 81       	ld	r24, Z
- 156:	80 64       	ori	r24, 0x40	; 64
- 158:	80 83       	st	Z, r24
- 15a:	08 95       	ret
-
-0000015c <ADC_setADMUX>:
-}
-
-void ADC_setADMUX(uint8_t channel)
-{
-	switch(channel)
- 15c:	90 e0       	ldi	r25, 0x00	; 0
- 15e:	83 32       	cpi	r24, 0x23	; 35
- 160:	91 05       	cpc	r25, r1
- 162:	08 f0       	brcs	.+2      	; 0x166 <ADC_setADMUX+0xa>
- 164:	bc c0       	rjmp	.+376    	; 0x2de <ADC_setADMUX+0x182>
- 166:	fc 01       	movw	r30, r24
- 168:	ea 5a       	subi	r30, 0xAA	; 170
- 16a:	ff 4f       	sbci	r31, 0xFF	; 255
- 16c:	0c 94 c5 02 	jmp	0x58a	; 0x58a <__tablejump2__>
-	{
-		case SENSOR1 :
-		{
-			ADCSRB &= ~(1 << MUX5);
- 170:	eb e7       	ldi	r30, 0x7B	; 123
- 172:	f0 e0       	ldi	r31, 0x00	; 0
- 174:	80 81       	ld	r24, Z
- 176:	8f 7d       	andi	r24, 0xDF	; 223
- 178:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX4);
- 17a:	ec e7       	ldi	r30, 0x7C	; 124
- 17c:	f0 e0       	ldi	r31, 0x00	; 0
- 17e:	80 81       	ld	r24, Z
- 180:	8f 7e       	andi	r24, 0xEF	; 239
- 182:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX3);
- 184:	80 81       	ld	r24, Z
- 186:	87 7f       	andi	r24, 0xF7	; 247
- 188:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX2);
- 18a:	80 81       	ld	r24, Z
- 18c:	8b 7f       	andi	r24, 0xFB	; 251
- 18e:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX1);
- 190:	80 81       	ld	r24, Z
- 192:	8d 7f       	andi	r24, 0xFD	; 253
- 194:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX0);
- 196:	80 81       	ld	r24, Z
- 198:	8e 7f       	andi	r24, 0xFE	; 254
- 19a:	80 83       	st	Z, r24
-		}
-		break;
- 19c:	08 95       	ret
-		case SENSOR2 :
-		{
-			ADCSRB &= ~(1 << MUX5);
- 19e:	eb e7       	ldi	r30, 0x7B	; 123
- 1a0:	f0 e0       	ldi	r31, 0x00	; 0
- 1a2:	80 81       	ld	r24, Z
- 1a4:	8f 7d       	andi	r24, 0xDF	; 223
- 1a6:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX4);
- 1a8:	ec e7       	ldi	r30, 0x7C	; 124
- 1aa:	f0 e0       	ldi	r31, 0x00	; 0
- 1ac:	80 81       	ld	r24, Z
- 1ae:	8f 7e       	andi	r24, 0xEF	; 239
- 1b0:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX3);
- 1b2:	80 81       	ld	r24, Z
- 1b4:	87 7f       	andi	r24, 0xF7	; 247
- 1b6:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX2);
- 1b8:	80 81       	ld	r24, Z
- 1ba:	8b 7f       	andi	r24, 0xFB	; 251
- 1bc:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX1);
- 1be:	80 81       	ld	r24, Z
- 1c0:	8d 7f       	andi	r24, 0xFD	; 253
- 1c2:	80 83       	st	Z, r24
-			ADMUX |= (1 << MUX0);			
- 1c4:	80 81       	ld	r24, Z
- 1c6:	81 60       	ori	r24, 0x01	; 1
- 1c8:	80 83       	st	Z, r24
-		}
-		break;
- 1ca:	08 95       	ret
-		case SENSOR3 :
-		{
-			ADCSRB &= ~(1 << MUX5);
- 1cc:	eb e7       	ldi	r30, 0x7B	; 123
- 1ce:	f0 e0       	ldi	r31, 0x00	; 0
- 1d0:	80 81       	ld	r24, Z
- 1d2:	8f 7d       	andi	r24, 0xDF	; 223
- 1d4:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX4);
- 1d6:	ec e7       	ldi	r30, 0x7C	; 124
- 1d8:	f0 e0       	ldi	r31, 0x00	; 0
- 1da:	80 81       	ld	r24, Z
- 1dc:	8f 7e       	andi	r24, 0xEF	; 239
- 1de:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX3);	
- 1e0:	80 81       	ld	r24, Z
- 1e2:	87 7f       	andi	r24, 0xF7	; 247
- 1e4:	80 83       	st	Z, r24
-			ADMUX |= (1 << MUX2);
- 1e6:	80 81       	ld	r24, Z
- 1e8:	84 60       	ori	r24, 0x04	; 4
- 1ea:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX1);
- 1ec:	80 81       	ld	r24, Z
- 1ee:	8d 7f       	andi	r24, 0xFD	; 253
- 1f0:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX0);			
- 1f2:	80 81       	ld	r24, Z
- 1f4:	8e 7f       	andi	r24, 0xFE	; 254
- 1f6:	80 83       	st	Z, r24
-		}
-		break;
- 1f8:	08 95       	ret
-		case SENSOR4 :
-		{
-			ADCSRB &= ~(1 << MUX5);
- 1fa:	eb e7       	ldi	r30, 0x7B	; 123
- 1fc:	f0 e0       	ldi	r31, 0x00	; 0
- 1fe:	80 81       	ld	r24, Z
- 200:	8f 7d       	andi	r24, 0xDF	; 223
- 202:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX4);
- 204:	ec e7       	ldi	r30, 0x7C	; 124
- 206:	f0 e0       	ldi	r31, 0x00	; 0
- 208:	80 81       	ld	r24, Z
- 20a:	8f 7e       	andi	r24, 0xEF	; 239
- 20c:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX3);
- 20e:	80 81       	ld	r24, Z
- 210:	87 7f       	andi	r24, 0xF7	; 247
- 212:	80 83       	st	Z, r24
-			ADMUX |= (1 << MUX2);
- 214:	80 81       	ld	r24, Z
- 216:	84 60       	ori	r24, 0x04	; 4
- 218:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX1);
- 21a:	80 81       	ld	r24, Z
- 21c:	8d 7f       	andi	r24, 0xFD	; 253
- 21e:	80 83       	st	Z, r24
-			ADMUX |= (1 << MUX0);			
- 220:	80 81       	ld	r24, Z
- 222:	81 60       	ori	r24, 0x01	; 1
- 224:	80 83       	st	Z, r24
-		}
-		break;
- 226:	08 95       	ret
+000000ea <ADC_interuptInit>:
 		case SENSOR5 :
 		{
 			ADCSRB &= ~(1 << MUX5);
- 228:	eb e7       	ldi	r30, 0x7B	; 123
- 22a:	f0 e0       	ldi	r31, 0x00	; 0
- 22c:	80 81       	ld	r24, Z
- 22e:	8f 7d       	andi	r24, 0xDF	; 223
- 230:	80 83       	st	Z, r24
 			ADMUX &= ~(1 << MUX4);
- 232:	ec e7       	ldi	r30, 0x7C	; 124
- 234:	f0 e0       	ldi	r31, 0x00	; 0
- 236:	80 81       	ld	r24, Z
- 238:	8f 7e       	andi	r24, 0xEF	; 239
- 23a:	80 83       	st	Z, r24
 			ADMUX &= ~(1 << MUX3);
- 23c:	80 81       	ld	r24, Z
- 23e:	87 7f       	andi	r24, 0xF7	; 247
- 240:	80 83       	st	Z, r24
 			ADMUX |= (1 << MUX2);
- 242:	80 81       	ld	r24, Z
- 244:	84 60       	ori	r24, 0x04	; 4
- 246:	80 83       	st	Z, r24
+  ea:	ec e7       	ldi	r30, 0x7C	; 124
 			ADMUX |= (1 << MUX1);
- 248:	80 81       	ld	r24, Z
- 24a:	82 60       	ori	r24, 0x02	; 2
- 24c:	80 83       	st	Z, r24
+  ec:	f0 e0       	ldi	r31, 0x00	; 0
+  ee:	80 81       	ld	r24, Z
+  f0:	80 6c       	ori	r24, 0xC0	; 192
 			ADMUX &= ~(1 << MUX0);
- 24e:	80 81       	ld	r24, Z
- 250:	8e 7f       	andi	r24, 0xFE	; 254
- 252:	80 83       	st	Z, r24
+  f2:	80 83       	st	Z, r24
+  f4:	ea e7       	ldi	r30, 0x7A	; 122
+  f6:	f0 e0       	ldi	r31, 0x00	; 0
 		}
 		break;
- 254:	08 95       	ret
+  f8:	80 81       	ld	r24, Z
 		case SENSOR6 :
 		{
 			ADCSRB |= (1 << MUX5);
- 256:	eb e7       	ldi	r30, 0x7B	; 123
- 258:	f0 e0       	ldi	r31, 0x00	; 0
- 25a:	80 81       	ld	r24, Z
- 25c:	80 62       	ori	r24, 0x20	; 32
- 25e:	80 83       	st	Z, r24
+  fa:	88 62       	ori	r24, 0x28	; 40
+  fc:	80 83       	st	Z, r24
+  fe:	ab e7       	ldi	r26, 0x7B	; 123
+ 100:	b0 e0       	ldi	r27, 0x00	; 0
+ 102:	8c 91       	ld	r24, X
 			ADMUX &= ~(1 << MUX4);
- 260:	ec e7       	ldi	r30, 0x7C	; 124
- 262:	f0 e0       	ldi	r31, 0x00	; 0
- 264:	80 81       	ld	r24, Z
- 266:	8f 7e       	andi	r24, 0xEF	; 239
- 268:	80 83       	st	Z, r24
+ 104:	80 68       	ori	r24, 0x80	; 128
+ 106:	8c 93       	st	X, r24
+ 108:	80 81       	ld	r24, Z
+ 10a:	80 68       	ori	r24, 0x80	; 128
+ 10c:	80 83       	st	Z, r24
 			ADMUX &= ~(1 << MUX3);
- 26a:	80 81       	ld	r24, Z
- 26c:	87 7f       	andi	r24, 0xF7	; 247
- 26e:	80 83       	st	Z, r24
+ 10e:	80 81       	ld	r24, Z
+ 110:	80 64       	ori	r24, 0x40	; 64
+ 112:	80 83       	st	Z, r24
 			ADMUX &= ~(1 << MUX2);
- 270:	80 81       	ld	r24, Z
- 272:	8b 7f       	andi	r24, 0xFB	; 251
- 274:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX1);
- 276:	80 81       	ld	r24, Z
- 278:	8d 7f       	andi	r24, 0xFD	; 253
- 27a:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX0);
- 27c:	80 81       	ld	r24, Z
- 27e:	8e 7f       	andi	r24, 0xFE	; 254
- 280:	80 83       	st	Z, r24
-		}
-		break;
- 282:	08 95       	ret
-		case SENSOR7 :
-		{
-			ADCSRB |= (1 << MUX5);
- 284:	eb e7       	ldi	r30, 0x7B	; 123
- 286:	f0 e0       	ldi	r31, 0x00	; 0
- 288:	80 81       	ld	r24, Z
- 28a:	80 62       	ori	r24, 0x20	; 32
- 28c:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX4);
- 28e:	ec e7       	ldi	r30, 0x7C	; 124
- 290:	f0 e0       	ldi	r31, 0x00	; 0
- 292:	80 81       	ld	r24, Z
- 294:	8f 7e       	andi	r24, 0xEF	; 239
- 296:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX3);
- 298:	80 81       	ld	r24, Z
- 29a:	87 7f       	andi	r24, 0xF7	; 247
- 29c:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX2);
- 29e:	80 81       	ld	r24, Z
- 2a0:	8b 7f       	andi	r24, 0xFB	; 251
- 2a2:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX1);
- 2a4:	80 81       	ld	r24, Z
- 2a6:	8d 7f       	andi	r24, 0xFD	; 253
- 2a8:	80 83       	st	Z, r24
-			ADMUX |= (1 << MUX0);			
- 2aa:	80 81       	ld	r24, Z
- 2ac:	81 60       	ori	r24, 0x01	; 1
- 2ae:	80 83       	st	Z, r24
-		}
-		break;
- 2b0:	08 95       	ret
-		case SENSOR8 :
-		{
-			ADCSRB |= (1 << MUX5);
- 2b2:	eb e7       	ldi	r30, 0x7B	; 123
- 2b4:	f0 e0       	ldi	r31, 0x00	; 0
- 2b6:	80 81       	ld	r24, Z
- 2b8:	80 62       	ori	r24, 0x20	; 32
- 2ba:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX4);
- 2bc:	ec e7       	ldi	r30, 0x7C	; 124
- 2be:	f0 e0       	ldi	r31, 0x00	; 0
- 2c0:	80 81       	ld	r24, Z
- 2c2:	8f 7e       	andi	r24, 0xEF	; 239
- 2c4:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX3);
- 2c6:	80 81       	ld	r24, Z
- 2c8:	87 7f       	andi	r24, 0xF7	; 247
- 2ca:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX2);
- 2cc:	80 81       	ld	r24, Z
- 2ce:	8b 7f       	andi	r24, 0xFB	; 251
- 2d0:	80 83       	st	Z, r24
-			ADMUX |= (1 << MUX1);
- 2d2:	80 81       	ld	r24, Z
- 2d4:	82 60       	ori	r24, 0x02	; 2
- 2d6:	80 83       	st	Z, r24
-			ADMUX &= ~(1 << MUX0);			
- 2d8:	80 81       	ld	r24, Z
- 2da:	8e 7f       	andi	r24, 0xFE	; 254
- 2dc:	80 83       	st	Z, r24
- 2de:	08 95       	ret
+ 114:	08 95       	ret
 
-000002e0 <uart_transmit>:
+00000116 <pwm_init>:
+#include "/RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h"
+
+void pwm_init()
+{
+	//Set the direction pins as output for the motor driver.
+	DDRB |= (1 << DDB4) | (1 << DDB7);
+ 116:	84 b1       	in	r24, 0x04	; 4
+ 118:	80 69       	ori	r24, 0x90	; 144
+ 11a:	84 b9       	out	0x04, r24	; 4
+	DDRC |= (1 << DDC7);
+ 11c:	3f 9a       	sbi	0x07, 7	; 7
+	DDRF |= (1 << DDF7);
+ 11e:	87 9a       	sbi	0x10, 7	; 16
+	DDRB |= (1 << DDB5)|(1 << DDB6);//PWM pins
+ 120:	84 b1       	in	r24, 0x04	; 4
+ 122:	80 66       	ori	r24, 0x60	; 96
+ 124:	84 b9       	out	0x04, r24	; 4
+	
+	TCCR1A |= (1 << COM1A1) | (1 << COM1B1);
+ 126:	e0 e8       	ldi	r30, 0x80	; 128
+ 128:	f0 e0       	ldi	r31, 0x00	; 0
+ 12a:	80 81       	ld	r24, Z
+ 12c:	80 6a       	ori	r24, 0xA0	; 160
+ 12e:	80 83       	st	Z, r24
+	TCCR1A |= (1 << WGM11);
+ 130:	80 81       	ld	r24, Z
+ 132:	82 60       	ori	r24, 0x02	; 2
+ 134:	80 83       	st	Z, r24
+	TCCR1B |= (1 << WGM13) | (1 <<WGM12);
+ 136:	e1 e8       	ldi	r30, 0x81	; 129
+ 138:	f0 e0       	ldi	r31, 0x00	; 0
+ 13a:	80 81       	ld	r24, Z
+ 13c:	88 61       	ori	r24, 0x18	; 24
+ 13e:	80 83       	st	Z, r24
+	TCCR1B |= (1 << CS10);
+ 140:	80 81       	ld	r24, Z
+ 142:	81 60       	ori	r24, 0x01	; 1
+ 144:	80 83       	st	Z, r24
+	ICR1=0xFF;
+ 146:	8f ef       	ldi	r24, 0xFF	; 255
+ 148:	90 e0       	ldi	r25, 0x00	; 0
+ 14a:	90 93 87 00 	sts	0x0087, r25
+ 14e:	80 93 86 00 	sts	0x0086, r24
+	uart_print("PWM initialization finished!\r\n");
+ 152:	80 e0       	ldi	r24, 0x00	; 0
+ 154:	91 e0       	ldi	r25, 0x01	; 1
+ 156:	0e 94 b6 00 	call	0x16c	; 0x16c <uart_print>
+ 15a:	08 95       	ret
+
+0000015c <uart_transmit>:
 
 // transmit a char to uart
 void uart_transmit( unsigned char data )
 {
 	// wait for empty transmit buffer
 	while ( ! ( UCSR1A & ( 1 << UDRE1 ) ) )
- 2e0:	e8 ec       	ldi	r30, 0xC8	; 200
- 2e2:	f0 e0       	ldi	r31, 0x00	; 0
- 2e4:	90 81       	ld	r25, Z
- 2e6:	95 ff       	sbrs	r25, 5
- 2e8:	fd cf       	rjmp	.-6      	; 0x2e4 <uart_transmit+0x4>
+ 15c:	e8 ec       	ldi	r30, 0xC8	; 200
+ 15e:	f0 e0       	ldi	r31, 0x00	; 0
+ 160:	90 81       	ld	r25, Z
+ 162:	95 ff       	sbrs	r25, 5
+ 164:	fd cf       	rjmp	.-6      	; 0x160 <uart_transmit+0x4>
 	;
 	
 	// put data into buffer, sends data
 	UDR1 = data;
- 2ea:	80 93 ce 00 	sts	0x00CE, r24
- 2ee:	08 95       	ret
+ 166:	80 93 ce 00 	sts	0x00CE, r24
+ 16a:	08 95       	ret
 
-000002f0 <uart_print>:
+0000016c <uart_print>:
 }
 // write a string to the uart
 void uart_print( char data[] )
 {
- 2f0:	0f 93       	push	r16
- 2f2:	1f 93       	push	r17
- 2f4:	cf 93       	push	r28
- 2f6:	df 93       	push	r29
+ 16c:	0f 93       	push	r16
+ 16e:	1f 93       	push	r17
+ 170:	cf 93       	push	r28
+ 172:	df 93       	push	r29
 	//cli();
 	uint8_t count = 0;
 	uint8_t length = strlen(data);
- 2f8:	fc 01       	movw	r30, r24
- 2fa:	01 90       	ld	r0, Z+
- 2fc:	00 20       	and	r0, r0
- 2fe:	e9 f7       	brne	.-6      	; 0x2fa <uart_print+0xa>
- 300:	31 97       	sbiw	r30, 0x01	; 1
- 302:	1e 2f       	mov	r17, r30
- 304:	18 1b       	sub	r17, r24
+ 174:	fc 01       	movw	r30, r24
+ 176:	01 90       	ld	r0, Z+
+ 178:	00 20       	and	r0, r0
+ 17a:	e9 f7       	brne	.-6      	; 0x176 <uart_print+0xa>
+ 17c:	31 97       	sbiw	r30, 0x01	; 1
+ 17e:	1e 2f       	mov	r17, r30
+ 180:	18 1b       	sub	r17, r24
 	
 	for ( count = 0; count < length; count++ )
- 306:	51 f0       	breq	.+20     	; 0x31c <uart_print+0x2c>
- 308:	08 2f       	mov	r16, r24
- 30a:	c0 2f       	mov	r28, r16
- 30c:	d9 2f       	mov	r29, r25
+ 182:	51 f0       	breq	.+20     	; 0x198 <uart_print+0x2c>
+ 184:	08 2f       	mov	r16, r24
+ 186:	c0 2f       	mov	r28, r16
+ 188:	d9 2f       	mov	r29, r25
 	uart_transmit(data[count]);
- 30e:	89 91       	ld	r24, Y+
- 310:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
- 314:	8c 2f       	mov	r24, r28
- 316:	80 1b       	sub	r24, r16
+ 18a:	89 91       	ld	r24, Y+
+ 18c:	0e 94 ae 00 	call	0x15c	; 0x15c <uart_transmit>
+ 190:	8c 2f       	mov	r24, r28
+ 192:	80 1b       	sub	r24, r16
 {
 	//cli();
 	uint8_t count = 0;
 	uint8_t length = strlen(data);
 	
 	for ( count = 0; count < length; count++ )
- 318:	81 17       	cp	r24, r17
- 31a:	c8 f3       	brcs	.-14     	; 0x30e <uart_print+0x1e>
+ 194:	81 17       	cp	r24, r17
+ 196:	c8 f3       	brcs	.-14     	; 0x18a <uart_print+0x1e>
 	uart_transmit(data[count]);
 	
 	uart_transmit('\r');
- 31c:	8d e0       	ldi	r24, 0x0D	; 13
- 31e:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
+ 198:	8d e0       	ldi	r24, 0x0D	; 13
+ 19a:	0e 94 ae 00 	call	0x15c	; 0x15c <uart_transmit>
 	uart_transmit('\n');
- 322:	8a e0       	ldi	r24, 0x0A	; 10
- 324:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
+ 19e:	8a e0       	ldi	r24, 0x0A	; 10
+ 1a0:	0e 94 ae 00 	call	0x15c	; 0x15c <uart_transmit>
 	//sei();
 }
- 328:	df 91       	pop	r29
- 32a:	cf 91       	pop	r28
- 32c:	1f 91       	pop	r17
- 32e:	0f 91       	pop	r16
- 330:	08 95       	ret
+ 1a4:	df 91       	pop	r29
+ 1a6:	cf 91       	pop	r28
+ 1a8:	1f 91       	pop	r17
+ 1aa:	0f 91       	pop	r16
+ 1ac:	08 95       	ret
 
-00000332 <uart_int_transmit>:
-void uart_int_transmit(uint16_t data)
-{
- 332:	1f 93       	push	r17
- 334:	cf 93       	push	r28
- 336:	df 93       	push	r29
- 338:	ac 01       	movw	r20, r24
-		//a[i] = temp;
-		//data = data / 10;
-	//}
-	//uart_print(a);
-	//
-	uint8_t d1 = (data%10)+48;
- 33a:	9c 01       	movw	r18, r24
- 33c:	ad ec       	ldi	r26, 0xCD	; 205
- 33e:	bc ec       	ldi	r27, 0xCC	; 204
- 340:	0e 94 cb 02 	call	0x596	; 0x596 <__umulhisi3>
- 344:	96 95       	lsr	r25
- 346:	87 95       	ror	r24
- 348:	96 95       	lsr	r25
- 34a:	87 95       	ror	r24
- 34c:	96 95       	lsr	r25
- 34e:	87 95       	ror	r24
- 350:	9c 01       	movw	r18, r24
- 352:	22 0f       	add	r18, r18
- 354:	33 1f       	adc	r19, r19
- 356:	88 0f       	add	r24, r24
- 358:	99 1f       	adc	r25, r25
- 35a:	88 0f       	add	r24, r24
- 35c:	99 1f       	adc	r25, r25
- 35e:	88 0f       	add	r24, r24
- 360:	99 1f       	adc	r25, r25
- 362:	82 0f       	add	r24, r18
- 364:	93 1f       	adc	r25, r19
- 366:	ea 01       	movw	r28, r20
- 368:	c8 1b       	sub	r28, r24
- 36a:	d9 0b       	sbc	r29, r25
- 36c:	c0 5d       	subi	r28, 0xD0	; 208
-	data = data / 10;
- 36e:	9a 01       	movw	r18, r20
- 370:	0e 94 cb 02 	call	0x596	; 0x596 <__umulhisi3>
- 374:	ac 01       	movw	r20, r24
- 376:	56 95       	lsr	r21
- 378:	47 95       	ror	r20
- 37a:	56 95       	lsr	r21
- 37c:	47 95       	ror	r20
- 37e:	56 95       	lsr	r21
- 380:	47 95       	ror	r20
-	
-	uint8_t d2 = (data%10)+48;
- 382:	9a 01       	movw	r18, r20
- 384:	0e 94 cb 02 	call	0x596	; 0x596 <__umulhisi3>
- 388:	9c 01       	movw	r18, r24
- 38a:	36 95       	lsr	r19
- 38c:	27 95       	ror	r18
- 38e:	36 95       	lsr	r19
- 390:	27 95       	ror	r18
- 392:	36 95       	lsr	r19
- 394:	27 95       	ror	r18
- 396:	c9 01       	movw	r24, r18
- 398:	88 0f       	add	r24, r24
- 39a:	99 1f       	adc	r25, r25
- 39c:	22 0f       	add	r18, r18
- 39e:	33 1f       	adc	r19, r19
- 3a0:	22 0f       	add	r18, r18
- 3a2:	33 1f       	adc	r19, r19
- 3a4:	22 0f       	add	r18, r18
- 3a6:	33 1f       	adc	r19, r19
- 3a8:	28 0f       	add	r18, r24
- 3aa:	39 1f       	adc	r19, r25
- 3ac:	ca 01       	movw	r24, r20
- 3ae:	82 1b       	sub	r24, r18
- 3b0:	93 0b       	sbc	r25, r19
- 3b2:	d0 e3       	ldi	r29, 0x30	; 48
- 3b4:	d8 0f       	add	r29, r24
-	data = data / 10;
- 3b6:	9a 01       	movw	r18, r20
- 3b8:	0e 94 cb 02 	call	0x596	; 0x596 <__umulhisi3>
- 3bc:	ac 01       	movw	r20, r24
- 3be:	56 95       	lsr	r21
- 3c0:	47 95       	ror	r20
- 3c2:	56 95       	lsr	r21
- 3c4:	47 95       	ror	r20
- 3c6:	56 95       	lsr	r21
- 3c8:	47 95       	ror	r20
-	
-	uint8_t d3 = (data%10)+48;
- 3ca:	9a 01       	movw	r18, r20
- 3cc:	0e 94 cb 02 	call	0x596	; 0x596 <__umulhisi3>
- 3d0:	9c 01       	movw	r18, r24
- 3d2:	36 95       	lsr	r19
- 3d4:	27 95       	ror	r18
- 3d6:	36 95       	lsr	r19
- 3d8:	27 95       	ror	r18
- 3da:	36 95       	lsr	r19
- 3dc:	27 95       	ror	r18
- 3de:	c9 01       	movw	r24, r18
- 3e0:	88 0f       	add	r24, r24
- 3e2:	99 1f       	adc	r25, r25
- 3e4:	22 0f       	add	r18, r18
- 3e6:	33 1f       	adc	r19, r19
- 3e8:	22 0f       	add	r18, r18
- 3ea:	33 1f       	adc	r19, r19
- 3ec:	22 0f       	add	r18, r18
- 3ee:	33 1f       	adc	r19, r19
- 3f0:	28 0f       	add	r18, r24
- 3f2:	39 1f       	adc	r19, r25
- 3f4:	ca 01       	movw	r24, r20
- 3f6:	82 1b       	sub	r24, r18
- 3f8:	93 0b       	sbc	r25, r19
- 3fa:	10 e3       	ldi	r17, 0x30	; 48
- 3fc:	18 0f       	add	r17, r24
-	data = data / 10;
- 3fe:	9a 01       	movw	r18, r20
- 400:	0e 94 cb 02 	call	0x596	; 0x596 <__umulhisi3>
- 404:	ac 01       	movw	r20, r24
- 406:	56 95       	lsr	r21
- 408:	47 95       	ror	r20
- 40a:	56 95       	lsr	r21
- 40c:	47 95       	ror	r20
- 40e:	56 95       	lsr	r21
- 410:	47 95       	ror	r20
-	
-	uint8_t d4 = (data%10)+48;
- 412:	9a 01       	movw	r18, r20
- 414:	0e 94 cb 02 	call	0x596	; 0x596 <__umulhisi3>
- 418:	96 95       	lsr	r25
- 41a:	87 95       	ror	r24
- 41c:	96 95       	lsr	r25
- 41e:	87 95       	ror	r24
- 420:	96 95       	lsr	r25
- 422:	87 95       	ror	r24
- 424:	bc 01       	movw	r22, r24
- 426:	66 0f       	add	r22, r22
- 428:	77 1f       	adc	r23, r23
- 42a:	9c 01       	movw	r18, r24
- 42c:	22 0f       	add	r18, r18
- 42e:	33 1f       	adc	r19, r19
- 430:	22 0f       	add	r18, r18
- 432:	33 1f       	adc	r19, r19
- 434:	22 0f       	add	r18, r18
- 436:	33 1f       	adc	r19, r19
- 438:	26 0f       	add	r18, r22
- 43a:	37 1f       	adc	r19, r23
- 43c:	42 1b       	sub	r20, r18
- 43e:	53 0b       	sbc	r21, r19
- 440:	80 e3       	ldi	r24, 0x30	; 48
- 442:	84 0f       	add	r24, r20
-	data = data / 10;
-	
-	if( d4 != 48)
- 444:	80 33       	cpi	r24, 0x30	; 48
- 446:	11 f0       	breq	.+4      	; 0x44c <uart_int_transmit+0x11a>
-	{
-		uart_transmit(d4);
- 448:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-	}
-	if( d3 != 48)
- 44c:	10 33       	cpi	r17, 0x30	; 48
- 44e:	19 f0       	breq	.+6      	; 0x456 <uart_int_transmit+0x124>
-	{
-		uart_transmit(d3);
- 450:	81 2f       	mov	r24, r17
- 452:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-	}
-	if( d2 != 48)
- 456:	d0 33       	cpi	r29, 0x30	; 48
- 458:	19 f0       	breq	.+6      	; 0x460 <uart_int_transmit+0x12e>
-	{
-		uart_transmit(d2);
- 45a:	8d 2f       	mov	r24, r29
- 45c:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-	}
-	if( d1 != 48)
- 460:	c0 33       	cpi	r28, 0x30	; 48
- 462:	19 f0       	breq	.+6      	; 0x46a <uart_int_transmit+0x138>
-	{
-		uart_transmit(d1);
- 464:	8c 2f       	mov	r24, r28
- 466:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-	}
-	
-	uart_transmit('\r');
- 46a:	8d e0       	ldi	r24, 0x0D	; 13
- 46c:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-	uart_transmit('\n');
- 470:	8a e0       	ldi	r24, 0x0A	; 10
- 472:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-	
-}
- 476:	df 91       	pop	r29
- 478:	cf 91       	pop	r28
- 47a:	1f 91       	pop	r17
- 47c:	08 95       	ret
-
-0000047e <uart_init>:
+000001ae <uart_init>:
 void uart_init(void)
 {
 	// set baud rate
 	unsigned int baud = 16u;//BAUD_PRESCALE;
 	
 	UBRR1H = (unsigned char) (baud >> 8 );
- 47e:	10 92 cd 00 	sts	0x00CD, r1
+ 1ae:	10 92 cd 00 	sts	0x00CD, r1
 	UBRR1L = (unsigned char)baud;
- 482:	80 e1       	ldi	r24, 0x10	; 16
- 484:	80 93 cc 00 	sts	0x00CC, r24
+ 1b2:	80 e1       	ldi	r24, 0x10	; 16
+ 1b4:	80 93 cc 00 	sts	0x00CC, r24
 	UCSR1A |= (1 << U2X1);
- 488:	e8 ec       	ldi	r30, 0xC8	; 200
- 48a:	f0 e0       	ldi	r31, 0x00	; 0
- 48c:	80 81       	ld	r24, Z
- 48e:	82 60       	ori	r24, 0x02	; 2
- 490:	80 83       	st	Z, r24
+ 1b8:	e8 ec       	ldi	r30, 0xC8	; 200
+ 1ba:	f0 e0       	ldi	r31, 0x00	; 0
+ 1bc:	80 81       	ld	r24, Z
+ 1be:	82 60       	ori	r24, 0x02	; 2
+ 1c0:	80 83       	st	Z, r24
 	
 	// enable received and transmitter
 	UCSR1B = ( 1 << RXEN1 ) | ( 1 << TXEN1 );
- 492:	88 e1       	ldi	r24, 0x18	; 24
- 494:	80 93 c9 00 	sts	0x00C9, r24
+ 1c2:	88 e1       	ldi	r24, 0x18	; 24
+ 1c4:	80 93 c9 00 	sts	0x00C9, r24
 	
 	// set frame format ( 8data, 1stop )
 	UCSR1C = (1 << UCSZ10) | (1 << UCSZ11);
- 498:	86 e0       	ldi	r24, 0x06	; 6
- 49a:	80 93 ca 00 	sts	0x00CA, r24
- 49e:	08 95       	ret
+ 1c8:	86 e0       	ldi	r24, 0x06	; 6
+ 1ca:	80 93 ca 00 	sts	0x00CA, r24
+ 1ce:	08 95       	ret
 
-000004a0 <CheckSensor>:
-#include "/RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h"
-
-
-char CheckSensor()
-{
-	while(TRESHOLD > adc_value)
- 4a0:	80 91 23 01 	lds	r24, 0x0123
- 4a4:	90 91 24 01 	lds	r25, 0x0124
- 4a8:	84 3f       	cpi	r24, 0xF4	; 244
- 4aa:	91 40       	sbci	r25, 0x01	; 1
- 4ac:	e0 f5       	brcc	.+120    	; 0x526 <CheckSensor+0x86>
-	{
-		uart_transmit('A');
- 4ae:	81 e4       	ldi	r24, 0x41	; 65
- 4b0:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_transmit(':');
- 4b4:	8a e3       	ldi	r24, 0x3A	; 58
- 4b6:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_int_transmit(adc_value);
- 4ba:	80 91 23 01 	lds	r24, 0x0123
- 4be:	90 91 24 01 	lds	r25, 0x0124
- 4c2:	0e 94 99 01 	call	0x332	; 0x332 <uart_int_transmit>
-		uart_transmit('C');
- 4c6:	83 e4       	ldi	r24, 0x43	; 67
- 4c8:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_transmit(':');
- 4cc:	8a e3       	ldi	r24, 0x3A	; 58
- 4ce:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_transmit(channel+48);
- 4d2:	80 91 22 01 	lds	r24, 0x0122
- 4d6:	80 5d       	subi	r24, 0xD0	; 208
- 4d8:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_transmit('\r');
- 4dc:	8d e0       	ldi	r24, 0x0D	; 13
- 4de:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		uart_transmit('\n');
- 4e2:	8a e0       	ldi	r24, 0x0A	; 10
- 4e4:	0e 94 70 01 	call	0x2e0	; 0x2e0 <uart_transmit>
-		
-		if(channel >= 8)
- 4e8:	e0 91 22 01 	lds	r30, 0x0122
- 4ec:	e8 30       	cpi	r30, 0x08	; 8
- 4ee:	18 f0       	brcs	.+6      	; 0x4f6 <CheckSensor+0x56>
-		{
-			channel = 0;
- 4f0:	10 92 22 01 	sts	0x0122, r1
- 4f4:	0b c0       	rjmp	.+22     	; 0x50c <CheckSensor+0x6c>
-		}
-		else
-		{
-			ADC_setADMUX(sensor[channel]);
- 4f6:	f0 e0       	ldi	r31, 0x00	; 0
- 4f8:	e0 50       	subi	r30, 0x00	; 0
- 4fa:	ff 4f       	sbci	r31, 0xFF	; 255
- 4fc:	80 81       	ld	r24, Z
- 4fe:	0e 94 ae 00 	call	0x15c	; 0x15c <ADC_setADMUX>
-			channel += 1;
- 502:	80 91 22 01 	lds	r24, 0x0122
- 506:	8f 5f       	subi	r24, 0xFF	; 255
- 508:	80 93 22 01 	sts	0x0122, r24
-		}
-		adc_value =	0;
- 50c:	10 92 24 01 	sts	0x0124, r1
- 510:	10 92 23 01 	sts	0x0123, r1
-		adcFlag = false;
- 514:	10 92 26 01 	sts	0x0126, r1
-#include "/RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h"
-
-
-char CheckSensor()
-{
-	while(TRESHOLD > adc_value)
- 518:	80 91 23 01 	lds	r24, 0x0123
- 51c:	90 91 24 01 	lds	r25, 0x0124
- 520:	84 3f       	cpi	r24, 0xF4	; 244
- 522:	91 40       	sbci	r25, 0x01	; 1
- 524:	20 f2       	brcs	.-120    	; 0x4ae <CheckSensor+0xe>
-		adc_value =	0;
-		adcFlag = false;
-	}
-
-	return state;
- 526:	80 91 25 01 	lds	r24, 0x0125
- 52a:	08 95       	ret
-
-0000052c <__vector_29>:
+000001d0 <__vector_29>:
 #include "/RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h"
 #include <avr/interrupt.h>
 
 
 ISR (ADC_vect)
 {
- 52c:	1f 92       	push	r1
- 52e:	0f 92       	push	r0
- 530:	0f b6       	in	r0, 0x3f	; 63
- 532:	0f 92       	push	r0
- 534:	11 24       	eor	r1, r1
- 536:	8f 93       	push	r24
- 538:	9f 93       	push	r25
-	//}
-	//else
-	//{
-		//count++;
-	//}
+ 1d0:	1f 92       	push	r1
+ 1d2:	0f 92       	push	r0
+ 1d4:	0f b6       	in	r0, 0x3f	; 63
+ 1d6:	0f 92       	push	r0
+ 1d8:	11 24       	eor	r1, r1
+ 1da:	8f 93       	push	r24
+ 1dc:	9f 93       	push	r25
 	adc_value = ADC;
- 53a:	80 91 78 00 	lds	r24, 0x0078
- 53e:	90 91 79 00 	lds	r25, 0x0079
- 542:	90 93 24 01 	sts	0x0124, r25
- 546:	80 93 23 01 	sts	0x0123, r24
+ 1de:	80 91 78 00 	lds	r24, 0x0078
+ 1e2:	90 91 79 00 	lds	r25, 0x0079
+ 1e6:	90 93 39 01 	sts	0x0139, r25
+ 1ea:	80 93 38 01 	sts	0x0138, r24
 }
- 54a:	9f 91       	pop	r25
- 54c:	8f 91       	pop	r24
- 54e:	0f 90       	pop	r0
- 550:	0f be       	out	0x3f, r0	; 63
- 552:	0f 90       	pop	r0
- 554:	1f 90       	pop	r1
- 556:	18 95       	reti
+ 1ee:	9f 91       	pop	r25
+ 1f0:	8f 91       	pop	r24
+ 1f2:	0f 90       	pop	r0
+ 1f4:	0f be       	out	0x3f, r0	; 63
+ 1f6:	0f 90       	pop	r0
+ 1f8:	1f 90       	pop	r1
+ 1fa:	18 95       	reti
 
-00000558 <main>:
-
-int main(void)
+000001fc <main>:
 {
 	uint8_t aux;
+	uint8_t state;
+	
 	
 	DIDR0 |= (1 << ADC0D) | (1 << ADC1D) | (1 << ADC4D) | (1 << ADC5D) | (1 << ADC6D);
- 558:	ee e7       	ldi	r30, 0x7E	; 126
- 55a:	f0 e0       	ldi	r31, 0x00	; 0
- 55c:	80 81       	ld	r24, Z
- 55e:	83 67       	ori	r24, 0x73	; 115
- 560:	80 83       	st	Z, r24
+ 1fc:	ee e7       	ldi	r30, 0x7E	; 126
+ 1fe:	f0 e0       	ldi	r31, 0x00	; 0
+ 200:	80 81       	ld	r24, Z
+ 202:	83 67       	ori	r24, 0x73	; 115
+ 204:	80 83       	st	Z, r24
 	DIDR2 |= (1 << ADC8D) | (1 << ADC9D) | (1 << ADC10D); 
- 562:	ed e7       	ldi	r30, 0x7D	; 125
- 564:	f0 e0       	ldi	r31, 0x00	; 0
- 566:	80 81       	ld	r24, Z
- 568:	87 60       	ori	r24, 0x07	; 7
- 56a:	80 83       	st	Z, r24
+ 206:	ed e7       	ldi	r30, 0x7D	; 125
+ 208:	f0 e0       	ldi	r31, 0x00	; 0
+ 20a:	80 81       	ld	r24, Z
+ 20c:	87 60       	ori	r24, 0x07	; 7
+ 20e:	80 83       	st	Z, r24
 	
-	uart_init();
- 56c:	0e 94 3f 02 	call	0x47e	; 0x47e <uart_init>
-	ADC_interuptInit();
- 570:	0e 94 98 00 	call	0x130	; 0x130 <ADC_interuptInit>
+	DDRB |= (1<<DDB5) | (1<<DDB6) | (1 << DDB7) | (1 << DDB4);         //OCR1A and OCR1B...
+ 210:	84 b1       	in	r24, 0x04	; 4
+ 212:	80 6f       	ori	r24, 0xF0	; 240
+ 214:	84 b9       	out	0x04, r24	; 4
+	DDRC |= (1 << DDC7);
+ 216:	3f 9a       	sbi	0x07, 7	; 7
+	DDRF |= (1 << DDF7);
+ 218:	87 9a       	sbi	0x10, 7	; 16
+
+	
+	uart_init();                           //USART init
+ 21a:	0e 94 d7 00 	call	0x1ae	; 0x1ae <uart_init>
+	ADC_interuptInit();					   //ADC init
+ 21e:	0e 94 75 00 	call	0xea	; 0xea <ADC_interuptInit>
+	pwm_init();                            //PWM init
+ 222:	0e 94 8b 00 	call	0x116	; 0x116 <pwm_init>
+	
+	
 	uart_print("Initialisation finished.");
- 574:	88 e0       	ldi	r24, 0x08	; 8
- 576:	91 e0       	ldi	r25, 0x01	; 1
- 578:	0e 94 78 01 	call	0x2f0	; 0x2f0 <uart_print>
+ 226:	8f e1       	ldi	r24, 0x1F	; 31
+ 228:	91 e0       	ldi	r25, 0x01	; 1
+ 22a:	0e 94 b6 00 	call	0x16c	; 0x16c <uart_print>
 	sei();
- 57c:	78 94       	sei
-	
-    while(1)
-    {
-			aux = CheckSensor();
- 57e:	0e 94 50 02 	call	0x4a0	; 0x4a0 <CheckSensor>
-			MotorControl(aux);
- 582:	0e 94 c4 02 	call	0x588	; 0x588 <MotorControl>
- 586:	fb cf       	rjmp	.-10     	; 0x57e <main+0x26>
+ 22e:	78 94       	sei
+ 230:	ff cf       	rjmp	.-2      	; 0x230 <main+0x34>
 
-00000588 <MotorControl>:
-#include <avr/io.h>
-#include "/RoboTec/RoboTec/RoboTec/Headers/main.h"
-#include "/RoboTec/RoboTec/RoboTec/Headers/Motors.h"
+00000232 <_exit>:
+ 232:	f8 94       	cli
 
-void MotorControl(uint8_t state)
-{
- 588:	08 95       	ret
-
-0000058a <__tablejump2__>:
- 58a:	ee 0f       	add	r30, r30
- 58c:	ff 1f       	adc	r31, r31
-
-0000058e <__tablejump__>:
- 58e:	05 90       	lpm	r0, Z+
- 590:	f4 91       	lpm	r31, Z
- 592:	e0 2d       	mov	r30, r0
- 594:	09 94       	ijmp
-
-00000596 <__umulhisi3>:
- 596:	a2 9f       	mul	r26, r18
- 598:	b0 01       	movw	r22, r0
- 59a:	b3 9f       	mul	r27, r19
- 59c:	c0 01       	movw	r24, r0
- 59e:	a3 9f       	mul	r26, r19
- 5a0:	70 0d       	add	r23, r0
- 5a2:	81 1d       	adc	r24, r1
- 5a4:	11 24       	eor	r1, r1
- 5a6:	91 1d       	adc	r25, r1
- 5a8:	b2 9f       	mul	r27, r18
- 5aa:	70 0d       	add	r23, r0
- 5ac:	81 1d       	adc	r24, r1
- 5ae:	11 24       	eor	r1, r1
- 5b0:	91 1d       	adc	r25, r1
- 5b2:	08 95       	ret
-
-000005b4 <_exit>:
- 5b4:	f8 94       	cli
-
-000005b6 <__stop_program>:
- 5b6:	ff cf       	rjmp	.-2      	; 0x5b6 <__stop_program>
+00000234 <__stop_program>:
+ 234:	ff cf       	rjmp	.-2      	; 0x234 <__stop_program>

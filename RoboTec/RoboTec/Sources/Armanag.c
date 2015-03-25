@@ -7,9 +7,9 @@
 #include <avr/io.h>
 #include "/RoboTec/RoboTec/RoboTec/Headers/Armanag.h"
 #include "/RoboTec/RoboTec/RoboTec/Headers/main.h"
-#include <util/delay.h>
 #include "/RoboTec/RoboTec/RoboTec/Driver/Headers/USART.h"
 #include "/RoboTec/RoboTec/RoboTec/Driver/Headers/ADC.h"
+#include "/RoboTec/RoboTec/RoboTec/Headers/Motors.h"
 
 
 char CheckSensor()
@@ -33,10 +33,49 @@ char CheckSensor()
 		{
 			ADC_setADMUX(sensor[channel]);
 			channel += 1;
-		}
-		adc_value =	0;
-		adcFlag = false;
+		}	
 	}
-
 	return state;
 }
+
+void ProcessLineState(uint8_t mask)
+{
+	//switch(mask)
+	//{
+		//case 0b00000000:
+		//break;
+		//
+		//case 0b00011000:
+		//forward(speed(50));
+		//break;
+		//
+		//case 0b00110000:
+		//left_f(speed(70));
+		//break;
+		//
+		//case 0b01100000:
+		//left_f(speed(70));
+		//break;
+		//
+		//case 0b11000000:
+		//left_f(speed(70));
+		//break;
+		//
+		//case 0b00001100:
+		//right(speed(70));
+		//break;		
+		//
+		//case 0b00000110:
+		//right(speed(70));
+		//break;
+		//
+		//case 0b00000011:
+		//right(speed(70));
+		//break;
+		//
+		//
+		//
+		//break;
+	//}
+}
+

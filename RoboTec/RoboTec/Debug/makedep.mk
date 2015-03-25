@@ -4,7 +4,11 @@
 
 Driver\Source\ADC.c
 
+Driver\Source\LCD_control.c
+
 Driver\Source\PWM.c
+
+Driver\Source\TWI_driver.c
 
 Driver\Source\USART.c
 

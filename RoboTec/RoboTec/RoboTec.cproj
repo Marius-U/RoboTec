@@ -99,7 +99,22 @@
     <Compile Include="Driver\Headers\ADC.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Driver\Headers\ina90.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\Headers\LCD_control.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\Headers\pgmspace.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Driver\Headers\PWM.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\Headers\TWI_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\Headers\TWSR.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Driver\Headers\USART.h">
@@ -108,7 +123,13 @@
     <Compile Include="Driver\Source\ADC.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Driver\Source\LCD_control.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Driver\Source\PWM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Driver\Source\TWI_driver.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Driver\Source\USART.c">

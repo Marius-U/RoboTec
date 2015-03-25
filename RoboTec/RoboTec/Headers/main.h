@@ -34,3 +34,5 @@ extern uint8_t channel;
 extern uint8_t sensor[MAX_SENSOR];
 extern uint8_t state;
 extern uint8_t sFlag;
+extern volatile uint8_t lineState;
+
