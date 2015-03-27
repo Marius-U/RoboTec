@@ -14,8 +14,8 @@
 void MotorControl(uint8_t state);
 void backwards(uint8_t value);
 void forward(uint8_t value);
-void left_f(uint8_t value, uint8_t direction);
-void right(uint8_t value, uint8_t direction);
+void steer(uint8_t value_right, uint8_t value_left);
+void right(uint8_t value_right, uint8_t value_left);
 
 
 

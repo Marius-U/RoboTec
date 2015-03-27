@@ -25,31 +25,23 @@ void backwards(uint8_t value)
 }
 void forward(uint8_t value)
 {
-	OCR1A = value;
-	OCR1B = value + 10;
+	uint8_t tempSpeed = 0;
+	int16_t count = 0;
 	
 	PORTC &= ~(1 << PORTC7);
 	PORTB &= ~(1 << PORTB7);
 	PORTF |= (1 << PORTF7);
 	PORTB |= (1 << PORTB4);
-}
-void left_f(uint8_t value, uint8_t direction)
-{
-	OCR1A = 0;
-	OCR1B = value;
-	
-	PORTC |= (1 << PORTC7);
-	PORTB |= (1 << PORTB7);
-	PORTF &= ~(1 << PORTF7);
-	PORTB &= ~(1 << PORTB4);
-}
-void right(uint8_t value, uint8_t direction)
-{
 	OCR1A = value;
-	OCR1B = 0;
+	OCR1B = value + 5;	
+}
+void steer(uint8_t value_right, uint8_t value_left)
+{
+	OCR1A = value_left;
+	OCR1B = value_right;
 	
-	PORTC |= (1 << PORTC7);
-	PORTB |= (1 << PORTB7);
-	PORTF &= ~(1 << PORTF7);
-	PORTB &= ~(1 << PORTB4);
+	PORTC &= ~(1 << PORTC7);
+	PORTB &= ~(1 << PORTB7);
+	PORTF |= (1 << PORTF7);
+	PORTB |= (1 << PORTB4);
 }

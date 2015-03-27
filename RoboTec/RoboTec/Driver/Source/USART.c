@@ -43,6 +43,19 @@ void uart_print( char data[] )
 	uart_transmit('\n');
 	//sei();
 }
+void uart_print_bits(uint8_t data)
+{
+	uint8_t temp = data;
+	uart_int_transmit(data);
+	
+	while(temp > 0)
+	{
+		uart_transmit((temp%2)+48);
+		temp = temp/2;
+	}
+	uart_transmit('\r');
+	uart_transmit('\n');
+}
 void uart_int_transmit(uint16_t data)
 {
 	//unsigned int i=0;

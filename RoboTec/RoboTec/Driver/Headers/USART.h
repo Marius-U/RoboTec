@@ -22,6 +22,7 @@ unsigned char uart_receive(void);
 void uart_init(void);
 int uart_dataAvailable(void);
 uint8_t uart_flush(void);
+void uart_print_bits(uint8_t data);
 
 
 #endif /* USART_H_ */

@@ -25,7 +25,10 @@ Sources/main.d Sources/main.o: ../Sources/main.c \
  d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
  /RoboTec/RoboTec/RoboTec/Driver/Headers/pgmspace.h \
  /RoboTec/RoboTec/RoboTec/Driver/Headers/TWI_driver.h \
- /RoboTec/RoboTec/RoboTec/Driver/Headers/ina90.h
+ /RoboTec/RoboTec/RoboTec/Driver/Headers/ina90.h \
+ d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay.h \
+ d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
+ d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\math.h
 
 d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -80,3 +83,9 @@ d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr
 /RoboTec/RoboTec/RoboTec/Driver/Headers/TWI_driver.h:
 
 /RoboTec/RoboTec/RoboTec/Driver/Headers/ina90.h:
+
+d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay.h:
+
+d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
+
+d:\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\math.h:

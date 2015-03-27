@@ -35,4 +35,8 @@ extern uint8_t sensor[MAX_SENSOR];
 extern uint8_t state;
 extern uint8_t sFlag;
 extern volatile uint8_t lineState;
+extern uint8_t previousSpeed;
+extern uint8_t currentSpeed;
+extern uint8_t left_speed;
+extern uint8_t right_speed;
 
