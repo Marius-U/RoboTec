@@ -68,7 +68,7 @@ int main(void)
 	PORTF &= ~(1 << PORTF4) & ~(1 << PORTF5) & ~(1 << PORTF6) ;
 	PORTD &= ~(1 << PORTD7);
 	
-	//DDRD |= (1 << DDD0);
+	DDRD |= (1 << DDD0);
 	
 	uart_init();                           //USART init
 	//ADC_interuptInit();					   //ADC init
@@ -77,12 +77,12 @@ int main(void)
 	//
 	uart_print("Initialisation finished.");
 	//sei();
-	forward(speed(30));
+	//forward(speed(30));
 	
     while(1)
     {
 		lineState = CheckSensor();
-		//PORTD ^= 0x01; //DD0
+	//	PORTD ^= 0x01; //DD0
 		//_delay_ms(300);
 		//uart_print_bits(lineState);
 		ProcessLineState(lineState);

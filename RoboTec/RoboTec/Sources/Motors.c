@@ -35,7 +35,7 @@ void forward(uint8_t value)
 	OCR1A = value;
 	OCR1B = value + 5;	
 }
-void steer(uint8_t value_right, uint8_t value_left)
+void steer(uint8_t value_left, uint8_t value_right)
 {
 	OCR1A = value_left;
 	OCR1B = value_right;

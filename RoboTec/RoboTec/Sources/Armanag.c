@@ -15,6 +15,7 @@ uint8_t angleFlag = 0;
 uint8_t prevState = 0;
 float radius = 14;
 float omega = 0.0;
+uint8_t c=0;
 
 uint8_t CheckSensor()
 {
@@ -27,23 +28,28 @@ uint8_t CheckSensor()
 
 void ProcessLineState(uint8_t mask)
 {
+	left_speed = 0;
+	right_speed = 0;
+	radius = 0; 
+	omega = 0;
+	
 	switch(mask)
 	{
 		case 0b00000000:
 		{
 			//forward(speed(0));
 			//Do nothing
-	/*		switch(angleFlag)
+			switch(angleFlag)
 			{
 				case ACUTE_ANGLE_LEFT:
 				{
-					left(SPEED+50,0);
+					steer(SPEED+50,0);
 					angleFlag = PREVIOUS_COMAND;
 				}
 				break;
 				case ACUTE_ANGLE_RIGHT:
 				{
-					left(0,SPEED+50);
+					steer(SPEED+50,0);
 					angleFlag = PREVIOUS_COMAND;
 				}
 				break;
@@ -51,7 +57,7 @@ void ProcessLineState(uint8_t mask)
 				{
 					
 				}
-			}*/
+			}
 			prevState = mask;
 		}
 		break;
@@ -60,9 +66,8 @@ void ProcessLineState(uint8_t mask)
 		{
 			//Go forward 
 			//alfa = 0
-			forward(SPEED);//((left_speed + right_speed)/2) + 1);
-			left_speed = ((left_speed + right_speed)/2) + 1;
-			right_speed = ((left_speed + right_speed)/2) + 1;
+			forward(SPEED);
+
 			prevState = mask;
 		}
 		break;
@@ -71,22 +76,24 @@ void ProcessLineState(uint8_t mask)
 		{
 			//turn left
 			//alfa = 4
-			if((prevState == mask)&&(radius > MIN_RADIUS))
+			
+			if(prevState != mask)
 			{
-				radius --;
+				c=10;
+			}
+			
+			if(count == 2000)
+			{
+				c+=3;
+				count=0;
 			}
 			else
 			{
-				radius = 1000;
-			}
-			left_speed = SPEED - 20;
-			omega = getOmega(4);
-			if((right_speed = (getRatio(omega,radius)) * left_speed) > SPEED)
-			{
-				right_speed = SPEED;
+				count++;
 			}
 			
-			steer(left_speed, right_speed);
+			right_speed = SPEED + c;
+			steer(SPEED, right_speed);
 			
 			prevState = mask;
 		}
@@ -96,19 +103,25 @@ void ProcessLineState(uint8_t mask)
 		{
 			//turn left
 			//alfa = 8
-			if((prevState == mask)&&(radius > MIN_RADIUS))
+			if(prevState != mask)
 			{
-				radius -= 2;
+				c=30;
+			}
+			
+			if(count == 2500)
+			{
+				c+=15;
+				count=0;
 			}
 			else
 			{
-				radius = 1000;
+				count++;
 			}
-			left_speed = SPEED - 30;
-			omega = getOmega(8);
-			right_speed = (getRatio(omega,radius)) * left_speed;
 			
-			steer(left_speed, right_speed);
+
+			right_speed = SPEED + c;
+			steer(SPEED, right_speed);
+			
 			prevState = mask;
 		}
 		break;
@@ -117,19 +130,26 @@ void ProcessLineState(uint8_t mask)
 		{
 			//turn left
 			//alfa = 12
-			if((prevState == mask)&&(radius > MIN_RADIUS))
+			
+			if(prevState != mask)
 			{
-				radius -= 4;
+				c=45;
+			}
+			
+			if(count == 2500)
+			{
+				c+=20;
+				count=0;
 			}
 			else
 			{
-				radius = 1000;
+				count++;
 			}
-			left_speed = SPEED - 40;
-			omega = getOmega(12);
-			right_speed = (getRatio(omega,radius)) * left_speed;
 			
-			steer(left_speed, right_speed);
+			
+			right_speed = SPEED + c;
+			steer(SPEED-50, right_speed);
+			
 			prevState = mask;
 		}
 		break;
@@ -138,22 +158,27 @@ void ProcessLineState(uint8_t mask)
 		{
 			//turn right
 			//alfa = 4
-			if((prevState == mask)&&(radius > MIN_RADIUS))
+			
+			if(prevState != mask)
 			{
-				radius --;
+				c=10;
+			}
+			
+			if(count == 2000)
+			{
+				c+=3;
+				count=0;
 			}
 			else
 			{
-				radius = 1000;
+				count++;
 			}
 			
-			right_speed = SPEED - 20;
+
+			left_speed = SPEED + c;
 			
-			omega = getOmega(4);
+			steer(left_speed, SPEED);
 			
-			left_speed = (getRatio(omega,radius)) * left_speed;
-			
-			steer(left_speed, right_speed);
 			prevState = mask;
 		}
 		break;		
@@ -162,22 +187,26 @@ void ProcessLineState(uint8_t mask)
 		{
 			//turn right
 			//alfa = 8
-			if((prevState == mask)&&(radius > MIN_RADIUS))
+			
+			if(prevState != mask)
 			{
-				radius --;
+				c=30;
+			}
+			
+			if(count == 2500)
+			{
+				c+=15;
+				count=0;
 			}
 			else
 			{
-				radius = 1000;
+				count++;
 			}
 			
-			right_speed = SPEED - 30;
+
+			left_speed = SPEED + c;
 			
-			omega = getOmega(8);
-			
-			left_speed = (getRatio(omega,radius)) * left_speed;
-			
-			steer(left_speed, right_speed);
+			steer(left_speed, SPEED);
 			prevState = mask;
 		}
 		break;
@@ -186,22 +215,27 @@ void ProcessLineState(uint8_t mask)
 		{
 			//turn right
 			//alfa = 12
-			if((prevState == mask)&&(radius > MIN_RADIUS))
+			if(prevState != mask)
 			{
-				radius --;
+				c=45;
+			}
+			
+			if(count == 2500)
+			{
+				c+=20;
+				count=0;
 			}
 			else
 			{
-				radius = 1000;
+				count++;
 			}
 			
-			right_speed = SPEED- 40;
+
+			left_speed = SPEED + c;
 			
-			omega = getOmega(12);
-			
-			left_speed = (getRatio(omega,radius)) * left_speed;
-			
-			steer(left_speed, right_speed);
+			steer(left_speed, SPEED-50);
+			prevState = mask;
+				
 			prevState = mask;
 		}
 		break;
@@ -209,19 +243,27 @@ void ProcessLineState(uint8_t mask)
 		{
 			//turn sharply to the left
 			//alfa = 16
-			if((prevState == mask)&&(radius > MIN_RADIUS))
+			if(prevState != mask)
 			{
-				radius -=10;
+				c=75;
+			}
+			
+			if(count == 2500)
+			{
+				c+=25;
+				count=0;
 			}
 			else
 			{
-				radius = 1000;
+				count++;
 			}
-			left_speed = SPEED - 50;
-			omega = getOmega(16);
-			right_speed = (getRatio(omega,radius)) * left_speed;
 			
-			steer(left_speed, right_speed);
+
+			right_speed = SPEED + c;
+			
+			steer(SPEED-70, right_speed);
+			//steer(left_speed, right_speed);
+			prevState = mask;
 			prevState = mask;
 		}
 		break;
@@ -229,22 +271,26 @@ void ProcessLineState(uint8_t mask)
 		{
 			//turn sharply to the right
 			//alfa = 16
-			if((prevState == mask)&&(radius > MIN_RADIUS))
+			if(prevState != mask)
 			{
-				radius --;
+				c=75;
+			}
+						
+			if(count == 2500)
+			{
+				c+=25;
+				count=0;
 			}
 			else
 			{
-				radius = 1000;
+				count++;
 			}
-			
-			right_speed = SPEED - 50;
-			
-			omega = getOmega(16);
-			
-			left_speed = (getRatio(omega,radius)) * left_speed;
-			
-			steer(left_speed, right_speed);
+						
+
+			left_speed = SPEED + c;
+						
+			steer(left_speed, SPEED-70);
+			//steer(left_speed, right_speed);
 			prevState = mask;
 			
 		}
@@ -287,6 +333,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b00000111:
 		//turn right
 		{
+			angleFlag = ACUTE_ANGLE_RIGHT;
 			prevState = mask;
 		}
 		break;
@@ -310,6 +357,8 @@ void ProcessLineState(uint8_t mask)
 		case 0b11110000:
 		//90 degree turn towards left
 		{
+			left_speed = 0;
+			steer(left_speed, SPEED/2);
 			prevState = mask;
 		}
 		break;
@@ -317,6 +366,8 @@ void ProcessLineState(uint8_t mask)
 		case 0b00001111:
 		//90 degree turn towards right
 		{
+			right_speed = 0;
+			steer(SPEED/2, right_speed);
 			prevState = mask;
 		}
 		break;
@@ -331,6 +382,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b11011000 :
 		// acute angle turn towards left
 		{
+			angleFlag = ACUTE_ANGLE_LEFT;
 			prevState = mask;
 		}
 		break;
@@ -338,6 +390,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b00110011:
 		// acute angle turn towards right
 		{
+			angleFlag = ACUTE_ANGLE_RIGHT;
 			prevState = mask;
 		}
 		break;
@@ -345,6 +398,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b00011011:
 		// acute angle turn towards right
 		{
+			angleFlag = ACUTE_ANGLE_RIGHT;
 			prevState = mask;
 		}
 		break;
@@ -352,6 +406,8 @@ void ProcessLineState(uint8_t mask)
 		case 0b11111000:
 		//90 degree turn towards left
 		{
+			left_speed = 0;
+			steer(left_speed, SPEED/2);
 			prevState = mask;
 		}
 		break;
@@ -359,6 +415,8 @@ void ProcessLineState(uint8_t mask)
 		case 0b00011111:
 		//90 degree turn towards right
 		{
+			right_speed = 0;
+			steer(SPEED/2, right_speed);
 			prevState = mask;
 		}
 		break;
@@ -366,6 +424,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b11011100:
 		//acute angle turn towards left
 		{
+			angleFlag = ACUTE_ANGLE_LEFT;
 			prevState = mask;
 		}
 		break;
@@ -373,6 +432,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b00111011:
 		//acute angle turn towards right
 		{
+			angleFlag = ACUTE_ANGLE_RIGHT;
 			prevState = mask;
 		}
 		break;
@@ -380,6 +440,8 @@ void ProcessLineState(uint8_t mask)
 		case 0b11111100:
 		//90 degree turn towards left
 		{
+			left_speed = 0;
+			steer(left_speed, SPEED/2);
 			prevState = mask;
 		}
 		break;
@@ -387,6 +449,8 @@ void ProcessLineState(uint8_t mask)
 		case 0b00111111:
 		//90 degree turn towards right
 		{
+			left_speed = 0;
+			steer(left_speed, SPEED/2);
 			prevState = mask;
 		}
 		break;
@@ -394,6 +458,8 @@ void ProcessLineState(uint8_t mask)
 		case 0b11111110:
 		//turn to left
 		{
+			right_speed = 0;
+			steer(SPEED/2, right_speed);
 			prevState = mask;
 		}
 		break;
@@ -401,6 +467,8 @@ void ProcessLineState(uint8_t mask)
 		case 0b01111111:
 		//turn to right
 		{
+			left_speed = 0;
+			steer(left_speed, SPEED/2);
 			prevState = mask;
 		}
 		break;
@@ -408,6 +476,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b11111111:
 		//do nothing
 		{
+			forward(SPEED);
 			prevState = mask;
 		}
 		break;

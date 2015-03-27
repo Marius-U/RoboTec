@@ -81,19 +81,19 @@ void uart_int_transmit(uint16_t data)
 	uint8_t d4 = (data%10)+48;
 	data = data / 10;
 	
-	if( d4 != 48)
+	//if( d4 != 48)
 	{
 		uart_transmit(d4);
 	}
-	if( d3 != 48)
+	//if( d3 != 48)
 	{
 		uart_transmit(d3);
 	}
-	if( d2 != 48)
+	//if( d2 != 48)
 	{
 		uart_transmit(d2);
 	}
-	if( d1 != 48)
+	//if( d1 != 48)
 	{
 		uart_transmit(d1);
 	}
