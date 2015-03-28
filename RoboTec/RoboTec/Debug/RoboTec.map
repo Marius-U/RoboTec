@@ -763,14 +763,14 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0xc07
+.debug_info     0x00000000      0xc0f
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0xc7 Driver/Source/PWM.o
  .debug_info    0x000000c7      0x334 Driver/Source/USART.o
- .debug_info    0x000003fb      0x3d0 Sources/Armanag.o
- .debug_info    0x000007cb       0x95 Sources/Interrupts.o
- .debug_info    0x00000860      0x261 Sources/main.o
- .debug_info    0x00000ac1      0x146 Sources/Motors.o
+ .debug_info    0x000003fb      0x3d8 Sources/Armanag.o
+ .debug_info    0x000007d3       0x95 Sources/Interrupts.o
+ .debug_info    0x00000868      0x261 Sources/main.o
+ .debug_info    0x00000ac9      0x146 Sources/Motors.o
 
 .debug_abbrev   0x00000000      0x5a7
  *(.debug_abbrev)

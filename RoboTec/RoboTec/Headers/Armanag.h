@@ -10,7 +10,7 @@
 #define ARMANAG_H_
 
 /*---------Defines-----------*/
-#define SPEED 100
+#define SPEED 110
 //#define CORECTION_MAX_SPEED 160
 //#define CORECTION_MIN_SPEED 140
 #define PREVIOUS_COMAND 0x00

@@ -79,9 +79,9 @@ void ProcessLineState(uint8_t mask)
 				c=0;
 			}
 						
-			if(count == 1100)
+			if(count == 500)
 			{
-				c+=3;
+				c+=2;
 				count=0;
 			}
 			else
@@ -107,9 +107,9 @@ void ProcessLineState(uint8_t mask)
 				c=10;
 			}
 			
-			if(count == 1500)
+			if(count == 500)
 			{
-				c+=3;
+				c+=2;
 				count=0;
 			}
 			else
@@ -130,12 +130,12 @@ void ProcessLineState(uint8_t mask)
 			//alfa = 8
 			if(prevState != mask)
 			{
-				c=25;
+				c=20;
 			}
 			
-			if(count == 1700)
+			if(count == 1000)
 			{
-				c+=11;
+				c+=6;
 				count=0;
 			}
 			else
@@ -158,12 +158,12 @@ void ProcessLineState(uint8_t mask)
 			
 			if(prevState != mask)
 			{
-				c=35;
+				c=30;
 			}
 			
-			if(count == 2200)
+			if(count == 1400)
 			{
-				c+=15;
+				c+=8;
 				count=0;
 			}
 			else
@@ -189,9 +189,9 @@ void ProcessLineState(uint8_t mask)
 				c=10;
 			}
 			
-			if(count == 1500)
+			if(count == 500)
 			{
-				c+=3;
+				c+=2;
 				count=0;
 			}
 			else
@@ -215,12 +215,12 @@ void ProcessLineState(uint8_t mask)
 			
 			if(prevState != mask)
 			{
-				c=25;
+				c=20;
 			}
 			
-			if(count == 1700)
+			if(count == 1000)
 			{
-				c+=11;
+				c+=6;
 				count=0;
 			}
 			else
@@ -242,12 +242,12 @@ void ProcessLineState(uint8_t mask)
 			//alfa = 12
 			if(prevState != mask)
 			{
-				c=35;
+				c=30;
 			}
 			
-			if(count == 2200)
+			if(count == 1400)
 			{
-				c+=15;
+				c+=8;
 				count=0;
 			}
 			else
@@ -270,12 +270,12 @@ void ProcessLineState(uint8_t mask)
 			//alfa = 16
 			if(prevState != mask)
 			{
-				c=65;
+				c=40;
 			}
 			
-			if(count == 2200)
+			if(count == 1700)
 			{
-				c+=17;
+				c+=10;
 				count=0;
 			}
 			else
@@ -298,12 +298,12 @@ void ProcessLineState(uint8_t mask)
 			//alfa = 16
 			if(prevState != mask)
 			{
-				c=65;
+				c=40;
 			}
 						
-			if(count == 2200)
+			if(count == 1700)
 			{
-				c+=17;
+				c+=10;
 				count=0;
 			}
 			else
@@ -383,7 +383,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards left
 		{
 			left_speed = 0;
-			steer(left_speed, (SPEED/2)-30);
+			steer(left_speed, (SPEED/2)-20);
 			prevState = mask;
 		}
 		break;
@@ -392,7 +392,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards right
 		{
 			right_speed = 0;
-			steer((SPEED/2)-30, right_speed);
+			steer((SPEED/2)-20, right_speed);
 			prevState = mask;
 		}
 		break;
@@ -432,7 +432,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards left
 		{
 			left_speed = 0;
-			steer(left_speed, (SPEED/2)-30);
+			steer(left_speed, (SPEED/2)-20);
 			prevState = mask;
 		}
 		break;
@@ -441,7 +441,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards right
 		{
 			right_speed = 0;
-			steer((SPEED/2)-30, right_speed);
+			steer((SPEED/2)-20, right_speed);
 			prevState = mask;
 		}
 		break;
@@ -466,7 +466,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards left
 		{
 			left_speed = 0;
-			steer(left_speed, (SPEED/2)-30);
+			steer(left_speed, (SPEED/2)-20);
 			prevState = mask;
 		}
 		break;
@@ -475,7 +475,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards right
 		{
 			left_speed = 0;
-			steer(left_speed, (SPEED/2)-30);
+			steer(left_speed, (SPEED/2)-20);
 			prevState = mask;
 		}
 		break;
@@ -484,7 +484,7 @@ void ProcessLineState(uint8_t mask)
 		//turn to left
 		{
 			right_speed = 0;
-			steer(SPEED/2, right_speed);
+			steer( right_speed,SPEED/2);
 			prevState = mask;
 		}
 		break;
@@ -493,7 +493,7 @@ void ProcessLineState(uint8_t mask)
 		//turn to right
 		{
 			left_speed = 0;
-			steer(left_speed, SPEED/2);
+			steer(left_speed, (SPEED/2)-20);
 			prevState = mask;
 		}
 		break;

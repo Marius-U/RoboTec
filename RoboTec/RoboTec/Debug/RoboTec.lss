@@ -13,19 +13,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .debug_aranges 00000130  00000000  00000000  00000a44  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000c07  00000000  00000000  00000b74  2**0
+  5 .debug_info   00000c0f  00000000  00000000  00000b74  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000005a7  00000000  00000000  0000177b  2**0
+  6 .debug_abbrev 000005a7  00000000  00000000  00001783  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000006b6  00000000  00000000  00001d22  2**0
+  7 .debug_line   000006b6  00000000  00000000  00001d2a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000238  00000000  00000000  000023d8  2**2
+  8 .debug_frame  00000238  00000000  00000000  000023e0  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000036b  00000000  00000000  00002610  2**0
+  9 .debug_str    0000036b  00000000  00000000  00002618  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000a62  00000000  00000000  0000297b  2**0
+ 10 .debug_loc    00000a62  00000000  00000000  00002983  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 000000d0  00000000  00000000  000033dd  2**0
+ 11 .debug_ranges 000000d0  00000000  00000000  000033e5  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -583,7 +583,7 @@ void ProcessLineState(uint8_t mask)
  3f8:	21 f4       	brne	.+8      	; 0x402 <ProcessLineState+0x4c>
 			{
 				forward(SPEED);
- 3fa:	84 e6       	ldi	r24, 0x64	; 100
+ 3fa:	8e e6       	ldi	r24, 0x6E	; 110
  3fc:	0e 94 7c 04 	call	0x8f8	; 0x8f8 <forward>
  400:	14 c0       	rjmp	.+40     	; 0x42a <ProcessLineState+0x74>
 			}
@@ -602,7 +602,7 @@ void ProcessLineState(uint8_t mask)
 					{
 						steer(SPEED-30,0);
  410:	60 e0       	ldi	r22, 0x00	; 0
- 412:	86 e4       	ldi	r24, 0x46	; 70
+ 412:	80 e5       	ldi	r24, 0x50	; 80
  414:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 						angleFlag = PREVIOUS_COMAND;
  418:	10 92 42 01 	sts	0x0142, r1
@@ -613,7 +613,7 @@ void ProcessLineState(uint8_t mask)
 					{
 						steer(SPEED-30,0);
  41e:	60 e0       	ldi	r22, 0x00	; 0
- 420:	86 e4       	ldi	r24, 0x46	; 70
+ 420:	80 e5       	ldi	r24, 0x50	; 80
  422:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 						angleFlag = PREVIOUS_COMAND;
  426:	10 92 42 01 	sts	0x0142, r1
@@ -641,16 +641,16 @@ void ProcessLineState(uint8_t mask)
  438:	10 92 3c 01 	sts	0x013C, r1
 			}
 						
-			if(count == 1100)
+			if(count == 500)
  43c:	80 91 45 01 	lds	r24, 0x0145
  440:	90 91 46 01 	lds	r25, 0x0146
- 444:	8c 34       	cpi	r24, 0x4C	; 76
- 446:	94 40       	sbci	r25, 0x04	; 4
+ 444:	84 3f       	cpi	r24, 0xF4	; 244
+ 446:	91 40       	sbci	r25, 0x01	; 1
  448:	51 f4       	brne	.+20     	; 0x45e <ProcessLineState+0xa8>
 			{
-				c+=3;
+				c+=2;
  44a:	80 91 3c 01 	lds	r24, 0x013C
- 44e:	8d 5f       	subi	r24, 0xFD	; 253
+ 44e:	8e 5f       	subi	r24, 0xFE	; 254
  450:	80 93 3c 01 	sts	0x013C, r24
 				count=0;
  454:	10 92 46 01 	sts	0x0146, r1
@@ -669,7 +669,7 @@ void ProcessLineState(uint8_t mask)
 						
 			right_speed = SPEED + c;
  470:	80 91 3c 01 	lds	r24, 0x013C
- 474:	8c 59       	subi	r24, 0x9C	; 156
+ 474:	82 59       	subi	r24, 0x92	; 146
  476:	80 93 43 01 	sts	0x0143, r24
 			
 			forward(right_speed);
@@ -696,16 +696,16 @@ void ProcessLineState(uint8_t mask)
  490:	80 93 3c 01 	sts	0x013C, r24
 			}
 			
-			if(count == 1500)
+			if(count == 500)
  494:	80 91 45 01 	lds	r24, 0x0145
  498:	90 91 46 01 	lds	r25, 0x0146
- 49c:	8c 3d       	cpi	r24, 0xDC	; 220
- 49e:	95 40       	sbci	r25, 0x05	; 5
+ 49c:	84 3f       	cpi	r24, 0xF4	; 244
+ 49e:	91 40       	sbci	r25, 0x01	; 1
  4a0:	51 f4       	brne	.+20     	; 0x4b6 <ProcessLineState+0x100>
 			{
-				c+=3;
+				c+=2;
  4a2:	80 91 3c 01 	lds	r24, 0x013C
- 4a6:	8d 5f       	subi	r24, 0xFD	; 253
+ 4a6:	8e 5f       	subi	r24, 0xFE	; 254
  4a8:	80 93 3c 01 	sts	0x013C, r24
 				count=0;
  4ac:	10 92 46 01 	sts	0x0146, r1
@@ -724,10 +724,10 @@ void ProcessLineState(uint8_t mask)
 			
 			right_speed = SPEED + c;
  4c8:	60 91 3c 01 	lds	r22, 0x013C
- 4cc:	6c 59       	subi	r22, 0x9C	; 156
+ 4cc:	62 59       	subi	r22, 0x92	; 146
  4ce:	60 93 43 01 	sts	0x0143, r22
 			steer(SPEED, right_speed);
- 4d2:	84 e6       	ldi	r24, 0x64	; 100
+ 4d2:	8e e6       	ldi	r24, 0x6E	; 110
  4d4:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			
 			prevState = mask;
@@ -746,21 +746,21 @@ void ProcessLineState(uint8_t mask)
  4e4:	80 36       	cpi	r24, 0x60	; 96
  4e6:	19 f0       	breq	.+6      	; 0x4ee <ProcessLineState+0x138>
 			{
-				c=25;
- 4e8:	89 e1       	ldi	r24, 0x19	; 25
+				c=20;
+ 4e8:	84 e1       	ldi	r24, 0x14	; 20
  4ea:	80 93 3c 01 	sts	0x013C, r24
 			}
 			
-			if(count == 1700)
+			if(count == 1000)
  4ee:	80 91 45 01 	lds	r24, 0x0145
  4f2:	90 91 46 01 	lds	r25, 0x0146
- 4f6:	84 3a       	cpi	r24, 0xA4	; 164
- 4f8:	96 40       	sbci	r25, 0x06	; 6
+ 4f6:	88 3e       	cpi	r24, 0xE8	; 232
+ 4f8:	93 40       	sbci	r25, 0x03	; 3
  4fa:	51 f4       	brne	.+20     	; 0x510 <ProcessLineState+0x15a>
 			{
-				c+=11;
+				c+=6;
  4fc:	80 91 3c 01 	lds	r24, 0x013C
- 500:	85 5f       	subi	r24, 0xF5	; 245
+ 500:	8a 5f       	subi	r24, 0xFA	; 250
  502:	80 93 3c 01 	sts	0x013C, r24
 				count=0;
  506:	10 92 46 01 	sts	0x0146, r1
@@ -780,10 +780,10 @@ void ProcessLineState(uint8_t mask)
 
 			right_speed = SPEED + c;
  522:	60 91 3c 01 	lds	r22, 0x013C
- 526:	6c 59       	subi	r22, 0x9C	; 156
+ 526:	62 59       	subi	r22, 0x92	; 146
  528:	60 93 43 01 	sts	0x0143, r22
 			steer(SPEED, right_speed);
- 52c:	84 e6       	ldi	r24, 0x64	; 100
+ 52c:	8e e6       	ldi	r24, 0x6E	; 110
  52e:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			
 			prevState = mask;
@@ -802,21 +802,21 @@ void ProcessLineState(uint8_t mask)
  53e:	80 3c       	cpi	r24, 0xC0	; 192
  540:	19 f0       	breq	.+6      	; 0x548 <ProcessLineState+0x192>
 			{
-				c=35;
- 542:	83 e2       	ldi	r24, 0x23	; 35
+				c=30;
+ 542:	8e e1       	ldi	r24, 0x1E	; 30
  544:	80 93 3c 01 	sts	0x013C, r24
 			}
 			
-			if(count == 2200)
+			if(count == 1400)
  548:	80 91 45 01 	lds	r24, 0x0145
  54c:	90 91 46 01 	lds	r25, 0x0146
- 550:	88 39       	cpi	r24, 0x98	; 152
- 552:	98 40       	sbci	r25, 0x08	; 8
+ 550:	88 37       	cpi	r24, 0x78	; 120
+ 552:	95 40       	sbci	r25, 0x05	; 5
  554:	51 f4       	brne	.+20     	; 0x56a <ProcessLineState+0x1b4>
 			{
-				c+=15;
+				c+=8;
  556:	80 91 3c 01 	lds	r24, 0x013C
- 55a:	81 5f       	subi	r24, 0xF1	; 241
+ 55a:	88 5f       	subi	r24, 0xF8	; 248
  55c:	80 93 3c 01 	sts	0x013C, r24
 				count=0;
  560:	10 92 46 01 	sts	0x0146, r1
@@ -836,10 +836,10 @@ void ProcessLineState(uint8_t mask)
 			
 			right_speed = SPEED + c;
  57c:	60 91 3c 01 	lds	r22, 0x013C
- 580:	6c 59       	subi	r22, 0x9C	; 156
+ 580:	62 59       	subi	r22, 0x92	; 146
  582:	60 93 43 01 	sts	0x0143, r22
 			steer(SPEED-50, right_speed);
- 586:	82 e3       	ldi	r24, 0x32	; 50
+ 586:	8c e3       	ldi	r24, 0x3C	; 60
  588:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			
 			prevState = mask;
@@ -863,16 +863,16 @@ void ProcessLineState(uint8_t mask)
  59e:	80 93 3c 01 	sts	0x013C, r24
 			}
 			
-			if(count == 1500)
+			if(count == 500)
  5a2:	80 91 45 01 	lds	r24, 0x0145
  5a6:	90 91 46 01 	lds	r25, 0x0146
- 5aa:	8c 3d       	cpi	r24, 0xDC	; 220
- 5ac:	95 40       	sbci	r25, 0x05	; 5
+ 5aa:	84 3f       	cpi	r24, 0xF4	; 244
+ 5ac:	91 40       	sbci	r25, 0x01	; 1
  5ae:	51 f4       	brne	.+20     	; 0x5c4 <ProcessLineState+0x20e>
 			{
-				c+=3;
+				c+=2;
  5b0:	80 91 3c 01 	lds	r24, 0x013C
- 5b4:	8d 5f       	subi	r24, 0xFD	; 253
+ 5b4:	8e 5f       	subi	r24, 0xFE	; 254
  5b6:	80 93 3c 01 	sts	0x013C, r24
 				count=0;
  5ba:	10 92 46 01 	sts	0x0146, r1
@@ -892,11 +892,11 @@ void ProcessLineState(uint8_t mask)
 
 			left_speed = SPEED + c;
  5d6:	80 91 3c 01 	lds	r24, 0x013C
- 5da:	8c 59       	subi	r24, 0x9C	; 156
+ 5da:	82 59       	subi	r24, 0x92	; 146
  5dc:	80 93 44 01 	sts	0x0144, r24
 			
 			steer(left_speed, SPEED);
- 5e0:	64 e6       	ldi	r22, 0x64	; 100
+ 5e0:	6e e6       	ldi	r22, 0x6E	; 110
  5e2:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			
 			prevState = mask;
@@ -915,21 +915,21 @@ void ProcessLineState(uint8_t mask)
  5f2:	86 30       	cpi	r24, 0x06	; 6
  5f4:	19 f0       	breq	.+6      	; 0x5fc <ProcessLineState+0x246>
 			{
-				c=25;
- 5f6:	89 e1       	ldi	r24, 0x19	; 25
+				c=20;
+ 5f6:	84 e1       	ldi	r24, 0x14	; 20
  5f8:	80 93 3c 01 	sts	0x013C, r24
 			}
 			
-			if(count == 1700)
+			if(count == 1000)
  5fc:	80 91 45 01 	lds	r24, 0x0145
  600:	90 91 46 01 	lds	r25, 0x0146
- 604:	84 3a       	cpi	r24, 0xA4	; 164
- 606:	96 40       	sbci	r25, 0x06	; 6
+ 604:	88 3e       	cpi	r24, 0xE8	; 232
+ 606:	93 40       	sbci	r25, 0x03	; 3
  608:	51 f4       	brne	.+20     	; 0x61e <ProcessLineState+0x268>
 			{
-				c+=11;
+				c+=6;
  60a:	80 91 3c 01 	lds	r24, 0x013C
- 60e:	85 5f       	subi	r24, 0xF5	; 245
+ 60e:	8a 5f       	subi	r24, 0xFA	; 250
  610:	80 93 3c 01 	sts	0x013C, r24
 				count=0;
  614:	10 92 46 01 	sts	0x0146, r1
@@ -949,11 +949,11 @@ void ProcessLineState(uint8_t mask)
 
 			left_speed = SPEED + c;
  630:	80 91 3c 01 	lds	r24, 0x013C
- 634:	8c 59       	subi	r24, 0x9C	; 156
+ 634:	82 59       	subi	r24, 0x92	; 146
  636:	80 93 44 01 	sts	0x0144, r24
 			
 			steer(left_speed, SPEED);
- 63a:	64 e6       	ldi	r22, 0x64	; 100
+ 63a:	6e e6       	ldi	r22, 0x6E	; 110
  63c:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			prevState = mask;
  640:	86 e0       	ldi	r24, 0x06	; 6
@@ -971,21 +971,21 @@ void ProcessLineState(uint8_t mask)
  64c:	83 30       	cpi	r24, 0x03	; 3
  64e:	19 f0       	breq	.+6      	; 0x656 <ProcessLineState+0x2a0>
 			{
-				c=35;
- 650:	83 e2       	ldi	r24, 0x23	; 35
+				c=30;
+ 650:	8e e1       	ldi	r24, 0x1E	; 30
  652:	80 93 3c 01 	sts	0x013C, r24
 			}
 			
-			if(count == 2200)
+			if(count == 1400)
  656:	80 91 45 01 	lds	r24, 0x0145
  65a:	90 91 46 01 	lds	r25, 0x0146
- 65e:	88 39       	cpi	r24, 0x98	; 152
- 660:	98 40       	sbci	r25, 0x08	; 8
+ 65e:	88 37       	cpi	r24, 0x78	; 120
+ 660:	95 40       	sbci	r25, 0x05	; 5
  662:	51 f4       	brne	.+20     	; 0x678 <ProcessLineState+0x2c2>
 			{
-				c+=15;
+				c+=8;
  664:	80 91 3c 01 	lds	r24, 0x013C
- 668:	81 5f       	subi	r24, 0xF1	; 241
+ 668:	88 5f       	subi	r24, 0xF8	; 248
  66a:	80 93 3c 01 	sts	0x013C, r24
 				count=0;
  66e:	10 92 46 01 	sts	0x0146, r1
@@ -1005,11 +1005,11 @@ void ProcessLineState(uint8_t mask)
 
 			left_speed = SPEED + c;
  68a:	80 91 3c 01 	lds	r24, 0x013C
- 68e:	8c 59       	subi	r24, 0x9C	; 156
+ 68e:	82 59       	subi	r24, 0x92	; 146
  690:	80 93 44 01 	sts	0x0144, r24
 			
 			steer(left_speed, SPEED-50);
- 694:	62 e3       	ldi	r22, 0x32	; 50
+ 694:	6c e3       	ldi	r22, 0x3C	; 60
  696:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			prevState = mask;
  69a:	83 e0       	ldi	r24, 0x03	; 3
@@ -1028,21 +1028,21 @@ void ProcessLineState(uint8_t mask)
  6a6:	80 38       	cpi	r24, 0x80	; 128
  6a8:	19 f0       	breq	.+6      	; 0x6b0 <ProcessLineState+0x2fa>
 			{
-				c=65;
- 6aa:	81 e4       	ldi	r24, 0x41	; 65
+				c=40;
+ 6aa:	88 e2       	ldi	r24, 0x28	; 40
  6ac:	80 93 3c 01 	sts	0x013C, r24
 			}
 			
-			if(count == 2200)
+			if(count == 1700)
  6b0:	80 91 45 01 	lds	r24, 0x0145
  6b4:	90 91 46 01 	lds	r25, 0x0146
- 6b8:	88 39       	cpi	r24, 0x98	; 152
- 6ba:	98 40       	sbci	r25, 0x08	; 8
+ 6b8:	84 3a       	cpi	r24, 0xA4	; 164
+ 6ba:	96 40       	sbci	r25, 0x06	; 6
  6bc:	51 f4       	brne	.+20     	; 0x6d2 <ProcessLineState+0x31c>
 			{
-				c+=17;
+				c+=10;
  6be:	80 91 3c 01 	lds	r24, 0x013C
- 6c2:	8f 5e       	subi	r24, 0xEF	; 239
+ 6c2:	86 5f       	subi	r24, 0xF6	; 246
  6c4:	80 93 3c 01 	sts	0x013C, r24
 				count=0;
  6c8:	10 92 46 01 	sts	0x0146, r1
@@ -1062,11 +1062,11 @@ void ProcessLineState(uint8_t mask)
 
 			right_speed = SPEED + c;
  6e4:	60 91 3c 01 	lds	r22, 0x013C
- 6e8:	6c 59       	subi	r22, 0x9C	; 156
+ 6e8:	62 59       	subi	r22, 0x92	; 146
  6ea:	60 93 43 01 	sts	0x0143, r22
 			
 			steer(SPEED-70, right_speed);
- 6ee:	8e e1       	ldi	r24, 0x1E	; 30
+ 6ee:	88 e2       	ldi	r24, 0x28	; 40
  6f0:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			//steer(left_speed, right_speed);
 			prevState = mask;
@@ -1085,21 +1085,21 @@ void ProcessLineState(uint8_t mask)
  700:	81 30       	cpi	r24, 0x01	; 1
  702:	19 f0       	breq	.+6      	; 0x70a <ProcessLineState+0x354>
 			{
-				c=65;
- 704:	81 e4       	ldi	r24, 0x41	; 65
+				c=40;
+ 704:	88 e2       	ldi	r24, 0x28	; 40
  706:	80 93 3c 01 	sts	0x013C, r24
 			}
 						
-			if(count == 2200)
+			if(count == 1700)
  70a:	80 91 45 01 	lds	r24, 0x0145
  70e:	90 91 46 01 	lds	r25, 0x0146
- 712:	88 39       	cpi	r24, 0x98	; 152
- 714:	98 40       	sbci	r25, 0x08	; 8
+ 712:	84 3a       	cpi	r24, 0xA4	; 164
+ 714:	96 40       	sbci	r25, 0x06	; 6
  716:	51 f4       	brne	.+20     	; 0x72c <ProcessLineState+0x376>
 			{
-				c+=17;
+				c+=10;
  718:	80 91 3c 01 	lds	r24, 0x013C
- 71c:	8f 5e       	subi	r24, 0xEF	; 239
+ 71c:	86 5f       	subi	r24, 0xF6	; 246
  71e:	80 93 3c 01 	sts	0x013C, r24
 				count=0;
  722:	10 92 46 01 	sts	0x0146, r1
@@ -1119,11 +1119,11 @@ void ProcessLineState(uint8_t mask)
 
 			left_speed = SPEED + c;
  73e:	80 91 3c 01 	lds	r24, 0x013C
- 742:	8c 59       	subi	r24, 0x9C	; 156
+ 742:	82 59       	subi	r24, 0x92	; 146
  744:	80 93 44 01 	sts	0x0144, r24
 						
 			steer(left_speed, SPEED-70);
- 748:	6e e1       	ldi	r22, 0x1E	; 30
+ 748:	68 e2       	ldi	r22, 0x28	; 40
  74a:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			//steer(left_speed, right_speed);
 			prevState = mask;
@@ -1226,8 +1226,8 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards left
 		{
 			left_speed = 0;
-			steer(left_speed, (SPEED/2)-30);
- 7a8:	64 e1       	ldi	r22, 0x14	; 20
+			steer(left_speed, (SPEED/2)-20);
+ 7a8:	63 e2       	ldi	r22, 0x23	; 35
  7aa:	80 e0       	ldi	r24, 0x00	; 0
  7ac:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			prevState = mask;
@@ -1241,9 +1241,9 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards right
 		{
 			right_speed = 0;
-			steer((SPEED/2)-30, right_speed);
+			steer((SPEED/2)-20, right_speed);
  7b8:	60 e0       	ldi	r22, 0x00	; 0
- 7ba:	84 e1       	ldi	r24, 0x14	; 20
+ 7ba:	83 e2       	ldi	r24, 0x23	; 35
  7bc:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			prevState = mask;
  7c0:	8f e0       	ldi	r24, 0x0F	; 15
@@ -1305,8 +1305,8 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards left
 		{
 			left_speed = 0;
-			steer(left_speed, (SPEED/2)-30);
- 7fa:	64 e1       	ldi	r22, 0x14	; 20
+			steer(left_speed, (SPEED/2)-20);
+ 7fa:	63 e2       	ldi	r22, 0x23	; 35
  7fc:	80 e0       	ldi	r24, 0x00	; 0
  7fe:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			prevState = mask;
@@ -1320,9 +1320,9 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards right
 		{
 			right_speed = 0;
-			steer((SPEED/2)-30, right_speed);
+			steer((SPEED/2)-20, right_speed);
  80a:	60 e0       	ldi	r22, 0x00	; 0
- 80c:	84 e1       	ldi	r24, 0x14	; 20
+ 80c:	83 e2       	ldi	r24, 0x23	; 35
  80e:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			prevState = mask;
  812:	8f e1       	ldi	r24, 0x1F	; 31
@@ -1361,8 +1361,8 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards left
 		{
 			left_speed = 0;
-			steer(left_speed, (SPEED/2)-30);
- 836:	64 e1       	ldi	r22, 0x14	; 20
+			steer(left_speed, (SPEED/2)-20);
+ 836:	63 e2       	ldi	r22, 0x23	; 35
  838:	80 e0       	ldi	r24, 0x00	; 0
  83a:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			prevState = mask;
@@ -1376,8 +1376,8 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards right
 		{
 			left_speed = 0;
-			steer(left_speed, (SPEED/2)-30);
- 846:	64 e1       	ldi	r22, 0x14	; 20
+			steer(left_speed, (SPEED/2)-20);
+ 846:	63 e2       	ldi	r22, 0x23	; 35
  848:	80 e0       	ldi	r24, 0x00	; 0
  84a:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			prevState = mask;
@@ -1391,9 +1391,9 @@ void ProcessLineState(uint8_t mask)
 		//turn to left
 		{
 			right_speed = 0;
-			steer(SPEED/2, right_speed);
- 856:	60 e0       	ldi	r22, 0x00	; 0
- 858:	82 e3       	ldi	r24, 0x32	; 50
+			steer( right_speed,SPEED/2);
+ 856:	67 e3       	ldi	r22, 0x37	; 55
+ 858:	80 e0       	ldi	r24, 0x00	; 0
  85a:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			prevState = mask;
  85e:	8e ef       	ldi	r24, 0xFE	; 254
@@ -1406,8 +1406,8 @@ void ProcessLineState(uint8_t mask)
 		//turn to right
 		{
 			left_speed = 0;
-			steer(left_speed, SPEED/2);
- 866:	62 e3       	ldi	r22, 0x32	; 50
+			steer(left_speed, (SPEED/2)-20);
+ 866:	63 e2       	ldi	r22, 0x23	; 35
  868:	80 e0       	ldi	r24, 0x00	; 0
  86a:	0e 94 8b 04 	call	0x916	; 0x916 <steer>
 			prevState = mask;
@@ -1421,7 +1421,7 @@ void ProcessLineState(uint8_t mask)
 		//do nothing
 		{
 			forward(SPEED);
- 876:	84 e6       	ldi	r24, 0x64	; 100
+ 876:	8e e6       	ldi	r24, 0x6E	; 110
  878:	0e 94 7c 04 	call	0x8f8	; 0x8f8 <forward>
 			prevState = mask;
  87c:	8f ef       	ldi	r24, 0xFF	; 255
