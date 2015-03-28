@@ -43,13 +43,13 @@ void ProcessLineState(uint8_t mask)
 			{
 				case ACUTE_ANGLE_LEFT:
 				{
-					steer(SPEED+50,0);
+					steer(SPEED,0);
 					angleFlag = PREVIOUS_COMAND;
 				}
 				break;
 				case ACUTE_ANGLE_RIGHT:
 				{
-					steer(SPEED+50,0);
+					steer(SPEED,0);
 					angleFlag = PREVIOUS_COMAND;
 				}
 				break;
@@ -57,7 +57,7 @@ void ProcessLineState(uint8_t mask)
 				{
 					
 				}
-			}
+				}
 			prevState = mask;
 		}
 		break;
@@ -66,7 +66,24 @@ void ProcessLineState(uint8_t mask)
 		{
 			//Go forward 
 			//alfa = 0
-			forward(SPEED);
+			if(prevState != mask)
+			{
+				c=0;
+			}
+						
+			if(count == 1500)
+			{
+				c+=3;
+				count=0;
+			}
+			else
+			{
+				count++;
+			}
+						
+			right_speed = SPEED + c;
+			
+			forward(right_speed);
 
 			prevState = mask;
 		}
@@ -110,7 +127,7 @@ void ProcessLineState(uint8_t mask)
 			
 			if(count == 2500)
 			{
-				c+=15;
+				c+=10;
 				count=0;
 			}
 			else
@@ -195,7 +212,7 @@ void ProcessLineState(uint8_t mask)
 			
 			if(count == 2500)
 			{
-				c+=15;
+				c+=10;
 				count=0;
 			}
 			else
@@ -358,7 +375,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards left
 		{
 			left_speed = 0;
-			steer(left_speed, SPEED/2);
+			steer(left_speed, (SPEED/2)-30);
 			prevState = mask;
 		}
 		break;
@@ -367,7 +384,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards right
 		{
 			right_speed = 0;
-			steer(SPEED/2, right_speed);
+			steer((SPEED/2)-30, right_speed);
 			prevState = mask;
 		}
 		break;
@@ -407,7 +424,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards left
 		{
 			left_speed = 0;
-			steer(left_speed, SPEED/2);
+			steer(left_speed, (SPEED/2)-30);
 			prevState = mask;
 		}
 		break;
@@ -416,7 +433,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards right
 		{
 			right_speed = 0;
-			steer(SPEED/2, right_speed);
+			steer((SPEED/2)-30, right_speed);
 			prevState = mask;
 		}
 		break;
@@ -441,7 +458,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards left
 		{
 			left_speed = 0;
-			steer(left_speed, SPEED/2);
+			steer(left_speed, (SPEED/2)-30);
 			prevState = mask;
 		}
 		break;
@@ -450,7 +467,7 @@ void ProcessLineState(uint8_t mask)
 		//90 degree turn towards right
 		{
 			left_speed = 0;
-			steer(left_speed, SPEED/2);
+			steer(left_speed, (SPEED/2)-30);
 			prevState = mask;
 		}
 		break;
