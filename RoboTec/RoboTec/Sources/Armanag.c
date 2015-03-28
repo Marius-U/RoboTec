@@ -39,25 +39,33 @@ void ProcessLineState(uint8_t mask)
 		{
 			//forward(speed(0));
 			//Do nothing
-			switch(angleFlag)
+			if((prevState == 0b00011000) || (prevState==0b00110000) || (prevState == 0b00001100))
 			{
-				case ACUTE_ANGLE_LEFT:
+				forward(SPEED);
+			}
+			else
+			{
+				
+				switch(angleFlag)
 				{
-					steer(SPEED,0);
-					angleFlag = PREVIOUS_COMAND;
+					case ACUTE_ANGLE_LEFT:
+					{
+						steer(SPEED-30,0);
+						angleFlag = PREVIOUS_COMAND;
+					}
+					break;
+					case ACUTE_ANGLE_RIGHT:
+					{
+						steer(SPEED-30,0);
+						angleFlag = PREVIOUS_COMAND;
+					}
+					break;
+					default:
+					{
+						
+					}
 				}
-				break;
-				case ACUTE_ANGLE_RIGHT:
-				{
-					steer(SPEED,0);
-					angleFlag = PREVIOUS_COMAND;
-				}
-				break;
-				default:
-				{
-					
-				}
-				}
+			}
 			prevState = mask;
 		}
 		break;
@@ -71,7 +79,7 @@ void ProcessLineState(uint8_t mask)
 				c=0;
 			}
 						
-			if(count == 1500)
+			if(count == 1100)
 			{
 				c+=3;
 				count=0;
@@ -99,7 +107,7 @@ void ProcessLineState(uint8_t mask)
 				c=10;
 			}
 			
-			if(count == 2000)
+			if(count == 1500)
 			{
 				c+=3;
 				count=0;
@@ -122,12 +130,12 @@ void ProcessLineState(uint8_t mask)
 			//alfa = 8
 			if(prevState != mask)
 			{
-				c=30;
+				c=25;
 			}
 			
-			if(count == 2500)
+			if(count == 1700)
 			{
-				c+=10;
+				c+=11;
 				count=0;
 			}
 			else
@@ -150,12 +158,12 @@ void ProcessLineState(uint8_t mask)
 			
 			if(prevState != mask)
 			{
-				c=45;
+				c=35;
 			}
 			
-			if(count == 2500)
+			if(count == 2200)
 			{
-				c+=20;
+				c+=15;
 				count=0;
 			}
 			else
@@ -181,7 +189,7 @@ void ProcessLineState(uint8_t mask)
 				c=10;
 			}
 			
-			if(count == 2000)
+			if(count == 1500)
 			{
 				c+=3;
 				count=0;
@@ -207,12 +215,12 @@ void ProcessLineState(uint8_t mask)
 			
 			if(prevState != mask)
 			{
-				c=30;
+				c=25;
 			}
 			
-			if(count == 2500)
+			if(count == 1700)
 			{
-				c+=10;
+				c+=11;
 				count=0;
 			}
 			else
@@ -234,12 +242,12 @@ void ProcessLineState(uint8_t mask)
 			//alfa = 12
 			if(prevState != mask)
 			{
-				c=45;
+				c=35;
 			}
 			
-			if(count == 2500)
+			if(count == 2200)
 			{
-				c+=20;
+				c+=15;
 				count=0;
 			}
 			else
@@ -262,12 +270,12 @@ void ProcessLineState(uint8_t mask)
 			//alfa = 16
 			if(prevState != mask)
 			{
-				c=75;
+				c=65;
 			}
 			
-			if(count == 2500)
+			if(count == 2200)
 			{
-				c+=25;
+				c+=17;
 				count=0;
 			}
 			else
@@ -290,12 +298,12 @@ void ProcessLineState(uint8_t mask)
 			//alfa = 16
 			if(prevState != mask)
 			{
-				c=75;
+				c=65;
 			}
 						
-			if(count == 2500)
+			if(count == 2200)
 			{
-				c+=25;
+				c+=17;
 				count=0;
 			}
 			else
