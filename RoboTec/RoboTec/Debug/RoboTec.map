@@ -466,7 +466,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x944
+.text           0x00000000      0x968
  *(.vectors)
  .vectors       0x00000000       0xac d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32u4.o
                 0x00000000                __vector_default
@@ -585,25 +585,25 @@ END GROUP
                 0x000003a4       0x12 Sources/Armanag.o
                 0x000003a4                CheckSensor
  .text.ProcessLineState
-                0x000003b6      0x4ce Sources/Armanag.o
+                0x000003b6      0x4f2 Sources/Armanag.o
                 0x000003b6                ProcessLineState
  .text.__vector_29
-                0x00000884       0x2c Sources/Interrupts.o
-                0x00000884                __vector_29
- .text.main     0x000008b0       0x48 Sources/main.o
-                0x000008b0                main
- .text.forward  0x000008f8       0x1e Sources/Motors.o
-                0x000008f8                forward
- .text.steer    0x00000916       0x1e Sources/Motors.o
-                0x00000916                steer
- .text.libgcc   0x00000934        0xc d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
-                0x00000934                __tablejump2__
-                0x00000938                __tablejump__
-                0x00000940                . = ALIGN (0x2)
+                0x000008a8       0x2c Sources/Interrupts.o
+                0x000008a8                __vector_29
+ .text.main     0x000008d4       0x48 Sources/main.o
+                0x000008d4                main
+ .text.forward  0x0000091c       0x1e Sources/Motors.o
+                0x0000091c                forward
+ .text.steer    0x0000093a       0x1e Sources/Motors.o
+                0x0000093a                steer
+ .text.libgcc   0x00000958        0xc d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+                0x00000958                __tablejump2__
+                0x0000095c                __tablejump__
+                0x00000964                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000940        0x0 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                0x00000940                _exit
-                0x00000940                exit
+ .fini9         0x00000964        0x0 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000964                _exit
+                0x00000964                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -622,11 +622,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000940        0x4 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000964        0x4 d:/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000944                _etext = .
+                0x00000968                _etext = .
 
-.data           0x00800100       0x3c load address 0x00000944
+.data           0x00800100       0x3c load address 0x00000968
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -673,8 +673,8 @@ END GROUP
                 0x00800149                lineState
                 0x0080014a                adcFlag
                 0x0080014b                PROVIDE (__bss_end, .)
-                0x00000944                __data_load_start = LOADADDR (.data)
-                0x00000980                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000968                __data_load_start = LOADADDR (.data)
+                0x000009a4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080014b        0x0
                 0x0080014b                PROVIDE (__noinit_start, .)
@@ -781,14 +781,14 @@ END GROUP
  .debug_abbrev  0x000003e4      0x12b Sources/main.o
  .debug_abbrev  0x0000050f       0x98 Sources/Motors.o
 
-.debug_line     0x00000000      0x6b6
+.debug_line     0x00000000      0x6bf
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000       0xd7 Driver/Source/PWM.o
  .debug_line    0x000000d7      0x177 Driver/Source/USART.o
- .debug_line    0x0000024e      0x1b5 Sources/Armanag.o
- .debug_line    0x00000403       0xc8 Sources/Interrupts.o
- .debug_line    0x000004cb      0x115 Sources/main.o
- .debug_line    0x000005e0       0xd6 Sources/Motors.o
+ .debug_line    0x0000024e      0x1be Sources/Armanag.o
+ .debug_line    0x0000040c       0xc8 Sources/Interrupts.o
+ .debug_line    0x000004d4      0x115 Sources/main.o
+ .debug_line    0x000005e9       0xd6 Sources/Motors.o
 
 .debug_frame    0x00000000      0x238
  *(.debug_frame)

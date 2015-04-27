@@ -382,8 +382,10 @@ void ProcessLineState(uint8_t mask)
 		case 0b11110000:
 		//90 degree turn towards left
 		{
+			angleFlag = PREVIOUS_COMAND;
 			left_speed = 0;
 			steer(left_speed, (SPEED/2)-20);
+			
 			prevState = mask;
 		}
 		break;
@@ -391,6 +393,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b00001111:
 		//90 degree turn towards right
 		{
+			angleFlag = PREVIOUS_COMAND;
 			right_speed = 0;
 			steer((SPEED/2)-20, right_speed);
 			prevState = mask;
@@ -431,6 +434,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b11111000:
 		//90 degree turn towards left
 		{
+			angleFlag = PREVIOUS_COMAND;
 			left_speed = 0;
 			steer(left_speed, (SPEED/2)-20);
 			prevState = mask;
@@ -440,6 +444,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b00011111:
 		//90 degree turn towards right
 		{
+			angleFlag = PREVIOUS_COMAND;
 			right_speed = 0;
 			steer((SPEED/2)-20, right_speed);
 			prevState = mask;
@@ -449,6 +454,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b11011100:
 		//acute angle turn towards left
 		{
+			
 			angleFlag = ACUTE_ANGLE_LEFT;
 			prevState = mask;
 		}
@@ -465,6 +471,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b11111100:
 		//90 degree turn towards left
 		{
+			angleFlag = PREVIOUS_COMAND;
 			left_speed = 0;
 			steer(left_speed, (SPEED/2)-20);
 			prevState = mask;
@@ -474,6 +481,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b00111111:
 		//90 degree turn towards right
 		{
+			angleFlag = PREVIOUS_COMAND;
 			left_speed = 0;
 			steer(left_speed, (SPEED/2)-20);
 			prevState = mask;
@@ -483,6 +491,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b11111110:
 		//turn to left
 		{
+			angleFlag = PREVIOUS_COMAND;
 			right_speed = 0;
 			steer( right_speed,SPEED/2);
 			prevState = mask;
@@ -492,6 +501,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b01111111:
 		//turn to right
 		{
+			angleFlag = PREVIOUS_COMAND;
 			left_speed = 0;
 			steer(left_speed, (SPEED/2)-20);
 			prevState = mask;
@@ -501,6 +511,7 @@ void ProcessLineState(uint8_t mask)
 		case 0b11111111:
 		//do nothing
 		{
+			angleFlag = PREVIOUS_COMAND;
 			forward(SPEED);
 			prevState = mask;
 		}
